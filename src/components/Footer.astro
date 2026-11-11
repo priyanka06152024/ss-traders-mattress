@@ -1,0 +1,36 @@
+---
+import { business } from "../data/site.js";
+---
+<footer class="bg-[var(--navy-deep)] text-white">
+  <div class="container-wide grid gap-12 py-14 md:grid-cols-[1.2fr_.8fr_1fr] md:py-16">
+    <div>
+      <a href="/" class="inline-flex rounded-xl bg-white p-2">
+        <img src="/images/ss-traders-logo.jpeg" alt="SS Traders Mattress logo" width="190" height="128" class="h-16 w-auto object-contain" loading="lazy" />
+      </a>
+      <p class="mt-5 max-w-sm text-sm leading-7 text-white/70">Quality comfort for better sleep. Explore mattress and foam options with SS Traders Mattress in Aligarh.</p>
+    </div>
+    <div>
+      <h2 class="text-sm font-bold uppercase tracking-[.16em] text-[var(--gold-light)]">Explore</h2>
+      <ul class="mt-5 space-y-3 text-sm text-white/75">
+        <li><a class="transition hover:text-[var(--gold-light)]" href="/">Home</a></li>
+        <li><a class="transition hover:text-[var(--gold-light)]" href="/about/">About Us</a></li>
+        <li><a class="transition hover:text-[var(--gold-light)]" href="/products/">Our Products</a></li>
+        <li><a class="transition hover:text-[var(--gold-light)]" href="/contact/">Contact Us</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="text-sm font-bold uppercase tracking-[.16em] text-[var(--gold-light)]">Get in touch</h2>
+      <ul class="mt-5 space-y-3 break-words text-sm leading-6 text-white/75">
+        <li><a href={`tel:${business.phone}`} class="transition hover:text-[var(--gold-light)]">{business.phoneDisplay}</a></li>
+        <li><a href={`mailto:${business.email}`} class="transition hover:text-[var(--gold-light)]">{business.email}</a></li>
+        <li>{business.shortAddress}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-white/10">
+    <div class="container-wide flex flex-col gap-2 py-5 text-xs text-white/55 sm:flex-row sm:items-center sm:justify-between">
+      <p>© {new Date().getFullYear()} SS Traders Mattress. All rights reserved.</p>
+      <p>Designed for comfort. Built for the web.</p>
+    </div>
+  </div>
+</footer>

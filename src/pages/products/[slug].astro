@@ -1,0 +1,30 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import { products } from "../../data/products.js";
+import { sizes } from "../../data/site.js";
+export function getStaticPaths() {
+  return products.map((product) => ({ params: { slug: product.slug }, props: { product } }));
+}
+const { product } = Astro.props;
+---
+<MainLayout title={`${product.name} | SS Traders Mattress Aligarh`} description={`${product.short} Enquire with SS Traders Mattress in Aligarh for product details and size availability.`}>
+  <section class="container-wide py-12 md:py-20">
+    <a href="/products/" class="inline-flex items-center gap-2 text-sm font-bold text-[var(--navy)] transition hover:text-[var(--gold)]">← All products</a>
+    <div class="mt-8 grid items-center gap-10 md:grid-cols-2 md:gap-16">
+      <div class="overflow-hidden rounded-3xl bg-slate-100">
+        <img src={product.image} alt={product.alt} width="1200" height="900" fetchpriority="high" class="aspect-[5/4] w-full object-cover" />
+      </div>
+      <div>
+        <p class="eyebrow">SS Traders Mattress</p>
+        <h1 class="section-title mt-4">{product.name}</h1>
+        <p class="mt-6 leading-8 text-[var(--muted)]">{product.description}</p>
+        <h2 class="mt-9 text-sm font-extrabold uppercase tracking-[.13em] text-[var(--navy)]">Sizes to enquire about</h2>
+        <p class="mt-2 text-sm leading-6 text-[var(--muted)]">Please contact us to confirm which sizes are available for this product.</p>
+        <div class="mt-4 flex flex-wrap gap-2">
+          {sizes.map((size) => <span class="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-[var(--navy)] transition hover:border-[var(--gold)] hover:bg-[#fff9eb]">{size}</span>)}
+        </div>
+        <a href={`https://wa.me/918273238363?text=${encodeURIComponent(`Hello, I would like to enquire about ${product.name}. Please share details and available sizes.`)}`} class="btn-primary mt-9">Enquire on WhatsApp <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+</MainLayout>

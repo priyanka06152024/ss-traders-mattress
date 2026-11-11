@@ -1,0 +1,16 @@
+{
+  "name": "ss-traders-mattress",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.5.1",
+    "@tailwindcss/vite": "^4.1.13",
+    "astro": "^5.18.2",
+    "tailwindcss": "^4.1.13"
+  }
+}

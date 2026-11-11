@@ -1,0 +1,871 @@
+
+---
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  title="About SS Traders Mattress | Mattress & Foam Supplier in Aligarh"
+  description="Discover SS Traders Mattress, your Aligarh-based supplier of orthopedic, foam, spring, memory foam and other mattress solutions."
+>
+  <!-- HERO -->
+  <section class="relative overflow-hidden bg-[var(--navy)] py-24 text-white md:py-32">
+    <div class="container-wide relative z-10">
+      <p class="eyebrow">WHO WE ARE</p>
+
+      <h1 class="mt-5 max-w-4xl text-5xl font-extrabold tracking-[-.05em] sm:text-6xl lg:text-7xl">
+        Comfort begins with
+        <span class="text-[var(--gold-light)]">the right choice.</span>
+      </h1>
+
+      <p class="mt-7 max-w-2xl text-base leading-8 text-white/70 md:text-lg">
+        Your trusted destination for mattress and foam products in Aligarh,
+        Uttar Pradesh. We believe better comfort starts with better choices.
+      </p>
+
+      <a href="/contact" class="about-btn mt-9 inline-flex">
+        Get in Touch <span>↗</span>
+      </a>
+    </div>
+
+    <div class="hero-decoration" aria-hidden="true">SS</div>
+  </section>
+
+  <!-- ABOUT INTRODUCTION -->
+  <section class="container-wide grid gap-12 py-20 md:grid-cols-2 md:items-center md:py-28">
+    <div>
+      <p class="eyebrow">ABOUT SS TRADERS</p>
+
+      <h2 class="section-title mt-4">
+        Quality comfort for a better everyday experience.
+      </h2>
+
+      <div class="gold-line mt-7"></div>
+
+      <p class="mt-7 text-sm leading-8 text-[var(--muted)]">
+        At SS Traders Mattress, we understand that comfort is an important
+        part of everyday living. That's why we offer a range of mattress
+        and foam products designed to suit different sleeping preferences,
+        comfort needs and budgets.
+      </p>
+    </div>
+
+    <div class="about-content space-y-5 text-[var(--muted)]">
+      <p>
+        SS Traders Mattress is a mattress and foam products supplier based
+        in Aligarh, Uttar Pradesh. We are committed to providing quality
+        mattress and foam solutions with a focus on comfort, durability
+        and customer requirements.
+      </p>
+
+      <p>
+        Our product range includes Orthopedic Mattresses, Foam Mattresses,
+        Rebonded/Bonded Mattresses, Spring Mattresses, Memory Foam
+        Mattresses, PU Foam and HR Foam products.
+      </p>
+
+      <p>
+        Whether you are looking for everyday sleeping comfort, additional
+        support or a particular foam solution, we aim to help you explore
+        suitable product options.
+      </p>
+
+      <p>
+        Customer satisfaction, product quality and reliable service remain
+        important to the way we serve our customers.
+      </p>
+    </div>
+  </section>
+
+  <!-- PRODUCT RANGE -->
+  <section class="bg-[var(--paper)] py-20 md:py-28">
+    <div class="container-wide">
+      <div class="max-w-2xl">
+        <p class="eyebrow">WHAT WE OFFER</p>
+
+        <h2 class="section-title mt-4">
+          Explore our range of mattress & foam products.
+        </h2>
+
+        <p class="mt-5 text-sm leading-8 text-[var(--muted)]">
+          Different people have different comfort preferences. Explore
+          our product categories and find options that match your needs.
+        </p>
+      </div>
+
+      <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {[
+          {
+            number: "01",
+            title: "Orthopedic Mattresses",
+            description: "Mattress options designed for people looking for supportive sleeping comfort."
+          },
+          {
+            number: "02",
+            title: "Foam Mattresses",
+            description: "Everyday foam mattress options available in different comfort preferences."
+          },
+          {
+            number: "03",
+            title: "Rebonded / Bonded Mattresses",
+            description: "Rebonded foam solutions for customers with different support requirements."
+          },
+          {
+            number: "04",
+            title: "Spring Mattresses",
+            description: "Spring-based mattress options for a different sleeping experience."
+          },
+          {
+            number: "05",
+            title: "Memory Foam Mattresses",
+            description: "Memory foam options designed to adapt to body contours and sleeping preferences."
+          },
+          {
+            number: "06",
+            title: "PU & HR Foam",
+            description: "Foam product solutions for a variety of comfort and usage requirements."
+          }
+        ].map((product) => (
+          <article class="product-box group">
+            <div class="flex items-center justify-between">
+              <span class="product-number">{product.number}</span>
+              <span class="product-star">✦</span>
+            </div>
+
+            <h3>{product.title}</h3>
+            <p>{product.description}</p>
+
+            <a href="/contact" aria-label={`Enquire about ${product.title}`}>
+              Enquire Now <span>↗</span>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="container-wide py-20 md:py-28">
+    <div class="grid gap-12 md:grid-cols-2">
+      <div>
+        <p class="eyebrow">WHY SS TRADERS</p>
+
+        <h2 class="section-title mt-4">
+          More than products. A focus on your comfort.
+        </h2>
+
+        <p class="mt-6 text-sm leading-8 text-[var(--muted)]">
+          We believe choosing the right mattress or foam product should
+          be simple and convenient. Our focus is to help customers explore
+          product options according to their individual needs.
+        </p>
+
+        <a href="/contact" class="about-btn mt-8 inline-flex">
+          Talk to Our Team <span>↗</span>
+        </a>
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-2">
+        {[
+          ["01", "Product Variety", "Multiple mattress and foam categories in one place."],
+          ["02", "Customer Focus", "Understanding different comfort preferences and requirements."],
+          ["03", "Quality Focus", "Committed to offering products with attention to quality and durability."],
+          ["04", "Local Presence", "Convenient local contact and product enquiries in Aligarh."]
+        ].map(([number, title, description]) => (
+          <article class="why-card">
+            <span>{number}</span>
+            <h3>{title}</h3>
+            <p>{description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR COMMITMENT -->
+  <section class="commitment-section bg-[var(--navy)] py-20 text-white md:py-24">
+    <div class="container-wide">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="eyebrow">OUR COMMITMENT</p>
+
+        <h2 class="text-4xl font-bold tracking-[-.04em] md:text-5xl">
+          Your comfort matters.
+          <span class="text-[var(--gold-light)]">Every day.</span>
+        </h2>
+
+        <p class="mt-7 text-sm leading-8 text-white/65 md:text-base">
+          Our aim is to make mattress and foam product selection easier
+          through a range of options and helpful customer interaction.
+          We value customer trust and continuously focus on providing
+          a positive buying experience.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- UDYAM REGISTRATION -->
+  <section class="container-wide py-20 md:py-28">
+    <div class="udyam-card">
+      <div class="udyam-icon" aria-hidden="true">✓</div>
+
+      <div class="udyam-content">
+        <p class="eyebrow">BUSINESS REGISTRATION</p>
+
+        <h2>Udyam Registration</h2>
+
+        <p>
+          SS Traders Mattress has provided the following Udyam
+          Registration Number as its business registration detail.
+        </p>
+
+        <div class="udyam-number">
+          <span>UDYAM REGISTRATION NUMBER</span>
+          <strong>UDYAM-UP-02-0115192</strong>
+        </div>
+
+        <a
+          href="https://udyamregistration.gov.in/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="udyam-link"
+        >
+          Visit Official Udyam Portal <span>↗</span>
+        </a>
+      </div>
+
+      
+    </div>
+  </section>
+
+
+
+<!-- BUSINESS CREDENTIALS -->
+<section class="credentials-section">
+  <div class="container-wide">
+
+    <div class="credentials-heading">
+      <p class="eyebrow">OUR BUSINESS CREDENTIALS</p>
+      <h2 class="section-title mt-4">
+        Registered with <span>transparency.</span>
+      </h2>
+      <p>
+        Explore the business registration details and documentation
+        of SS Traders Mattress.
+      </p>
+    </div>
+
+    <div class="credentials-grid">
+
+      <!-- UDYAM REGISTRATION -->
+      <div class="credential-info-card">
+        <div class="credential-icon">✓</div>
+
+        <p class="eyebrow">MSME REGISTRATION</p>
+
+        <h3>Udyam Registration</h3>
+
+        <p class="credential-description">
+          Udyam registration details provided by SS Traders Mattress
+          for business reference.
+        </p>
+
+        <div class="credential-number">
+          <span>REGISTRATION NUMBER</span>
+          <strong>UDYAM-UP-02-0115192</strong>
+        </div>
+
+        <a
+          href="https://udyamregistration.gov.in/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="credential-link"
+        >
+          Official Udyam Portal <span>↗</span>
+        </a>
+
+        <div class="credential-bottom">
+          <span>SS TRADERS MATTRESS</span>
+          <span>ALIGARH, UP</span>
+        </div>
+      </div>
+
+      <!-- GST CERTIFICATE -->
+      <div class="gst-card">
+
+        <div class="gst-card-heading">
+          <div>
+            <p class="eyebrow">TAX REGISTRATION</p>
+            <h3>GST Certificate</h3>
+          </div>
+
+          <span class="gst-badge">PDF · 3 PAGES</span>
+        </div>
+
+        <p class="gst-description">
+          View the GST registration document of SS Traders Mattress.
+        </p>
+
+        <div class="gst-pdf-preview">
+          <iframe
+            src="/documents/gst-certificate.pdf#toolbar=0&navpanes=0"
+            title="SS Traders Mattress GST Certificate"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div class="gst-actions">
+          <a
+            href="/documents/gst-certificate.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="gst-open-button"
+          >
+            Open Full Certificate <span>↗</span>
+          </a>
+
+          <a
+            href="/documents/gst-certificate.pdf"
+            download="SS-Traders-GST-Certificate.pdf"
+            class="gst-download-button"
+            aria-label="Download GST Certificate"
+          >
+            ↓
+          </a>
+        </div>
+
+        <p class="gst-note">
+          Official document provided by SS Traders Mattress.
+        </p>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+  <!-- FINAL CTA -->
+  <section class="bg-[var(--paper)] py-20 md:py-24">
+    <div class="container-wide text-center">
+      <p class="eyebrow">LET'S CONNECT</p>
+
+      <h2 class="mx-auto max-w-3xl text-4xl font-bold tracking-[-.04em] text-[var(--navy)] md:text-5xl">
+        Looking for the right comfort?
+        <span class="text-[var(--gold)]">Let's talk.</span>
+      </h2>
+
+      <p class="mx-auto mt-5 max-w-xl text-sm leading-8 text-[var(--muted)]">
+        Get in touch with SS Traders Mattress for product information,
+        enquiries and assistance.
+      </p>
+
+      <a href="/contact" class="about-btn mt-8 inline-flex">
+        Contact Us <span>↗</span>
+      </a>
+    </div>
+  </section>
+
+  <style>
+    .hero-decoration {
+      position: absolute;
+      right: 5%;
+      bottom: -100px;
+      color: rgba(255,255,255,.035);
+      font-size: clamp(180px, 30vw, 420px);
+      font-weight: 900;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .about-btn {
+      align-items: center;
+      justify-content: center;
+      gap: 35px;
+      padding: 16px 23px;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: 700;
+      transition: .3s ease;
+    }
+
+    .about-btn:hover {
+      background: var(--gold-light);
+      transform: translateY(-3px);
+    }
+
+    .about-btn span {
+      font-size: 17px;
+    }
+
+    .about-content p {
+      font-size: 14px;
+      line-height: 2;
+    }
+
+    .product-box {
+      padding: 30px;
+      min-height: 260px;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      background: white;
+      transition: .35s ease;
+    }
+
+    .product-box:hover {
+      transform: translateY(-7px);
+      border-color: var(--gold);
+      box-shadow: 0 18px 40px rgba(0,37,86,.08);
+    }
+
+    .product-number {
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .product-star {
+      color: var(--gold);
+      font-size: 21px;
+    }
+
+    .product-box h3 {
+      margin-top: 35px;
+      color: var(--navy);
+      font-size: 19px;
+      font-weight: 700;
+    }
+
+    .product-box p {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .product-box a {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      margin-top: 22px;
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: 700;
+      transition: .3s ease;
+    }
+
+    .product-box a:hover {
+      color: var(--gold);
+      gap: 16px;
+    }
+
+    .why-card {
+      padding: 25px;
+      border: 1px solid #e8e8e8;
+      border-radius: 12px;
+      transition: .3s ease;
+    }
+
+    .why-card:hover {
+      border-color: var(--gold);
+      background: var(--paper);
+      transform: translateY(-4px);
+    }
+
+    .why-card > span {
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .why-card h3 {
+      margin-top: 22px;
+      color: var(--navy);
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .why-card p {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.9;
+    }
+
+    .udyam-card {
+      position: relative;
+      display: flex;
+      gap: 30px;
+      align-items: flex-start;
+      overflow: hidden;
+      padding: 45px;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      background: white;
+      box-shadow: 0 15px 50px rgba(0,37,86,.05);
+    }
+
+    .udyam-icon {
+      display: grid;
+      width: 55px;
+      height: 55px;
+      flex-shrink: 0;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--paper);
+      color: var(--gold);
+      font-size: 25px;
+      font-weight: 700;
+    }
+
+    .udyam-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .udyam-content h2 {
+      color: var(--navy);
+      font-size: 30px;
+      font-weight: 700;
+    }
+
+    .udyam-content > p:not(.eyebrow) {
+      max-width: 600px;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .udyam-number {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      width: fit-content;
+      margin-top: 25px;
+      padding: 18px 22px;
+      border-left: 3px solid var(--gold);
+      background: var(--paper);
+    }
+
+    .udyam-number span {
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+    }
+
+    .udyam-number strong {
+      color: var(--navy);
+      font-size: 17px;
+      letter-spacing: .5px;
+    }
+
+    .udyam-link {
+      display: inline-flex;
+      gap: 10px;
+      margin-top: 22px;
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: 700;
+      transition: .3s ease;
+    }
+
+    .udyam-link:hover {
+      color: var(--gold);
+    }
+
+    .udyam-watermark {
+      position: absolute;
+      right: -15px;
+      bottom: -45px;
+      color: rgba(0,37,86,.035);
+      font-size: 100px;
+      font-weight: 900;
+      pointer-events: none;
+    }
+
+    @media (max-width: 640px) {
+      .udyam-card {
+        flex-direction: column;
+        gap: 22px;
+        padding: 28px 22px;
+      }
+
+      .udyam-content h2 {
+        font-size: 25px;
+      }
+
+      .udyam-number {
+        width: 100%;
+        padding: 15px;
+      }
+
+      .udyam-number strong {
+        font-size: 14px;
+        overflow-wrap: anywhere;
+      }
+
+      .udyam-watermark {
+        font-size: 65px;
+      }
+    }
+
+
+
+
+/* BUSINESS CREDENTIALS */
+
+.credentials-section {
+  padding: 110px 0;
+  background: #F5F3EE;
+}
+
+.credentials-heading {
+  max-width: 650px;
+  margin-bottom: 55px;
+}
+
+.credentials-heading .section-title span {
+  color: var(--gold);
+}
+
+.credentials-heading > p:last-child {
+  max-width: 530px;
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.credentials-grid {
+  display: grid;
+  grid-template-columns: .85fr 1.15fr;
+  gap: 25px;
+  align-items: stretch;
+}
+
+/* UDYAM CARD */
+
+.credential-info-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 42px 35px 30px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #E9E5DC;
+  box-shadow: 0 15px 40px rgba(40,35,25,.04);
+}
+
+.credential-icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 35px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  color: #A58243;
+  font-size: 21px;
+}
+
+.credential-info-card h3,
+.gst-card-heading h3 {
+  margin-top: 12px;
+  color: var(--navy);
+  font-size: 27px;
+  font-weight: 700;
+  letter-spacing: -.8px;
+}
+
+.credential-description,
+.gst-description {
+  margin-top: 15px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.credential-number {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  margin-top: 35px;
+  padding: 20px;
+  border-left: 3px solid var(--gold);
+  background: #F8F7F3;
+}
+
+.credential-number span {
+  color: #99938A;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+}
+
+.credential-number strong {
+  color: var(--navy);
+  font-size: 16px;
+  overflow-wrap: anywhere;
+}
+
+.credential-link {
+  display: inline-flex;
+  gap: 12px;
+  margin-top: 25px;
+  color: var(--navy);
+  font-size: 12px;
+  font-weight: 700;
+  transition: .3s ease;
+}
+
+.credential-link:hover {
+  color: var(--gold);
+  gap: 17px;
+}
+
+.credential-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  margin-top: auto;
+  padding-top: 30px;
+  color: #99938A;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* GST CARD */
+
+.gst-card {
+  padding: 35px;
+  background: #fff;
+  border: 1px solid #E9E5DC;
+  box-shadow: 0 15px 40px rgba(40,35,25,.04);
+}
+
+.gst-card-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.gst-badge {
+  padding: 9px 12px;
+  background: #F8F5EC;
+  color: #A58243;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.gst-pdf-preview {
+  height: 420px;
+  margin-top: 25px;
+  overflow: hidden;
+  border: 1px solid #E5E2DC;
+  background: #F4F3F0;
+}
+
+.gst-pdf-preview iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.gst-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.gst-open-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  padding: 14px 19px;
+  background: var(--gold);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  transition: .3s ease;
+}
+
+.gst-open-button:hover {
+  background: var(--navy);
+  transform: translateY(-2px);
+}
+
+.gst-download-button {
+  display: grid;
+  place-items: center;
+  width: 45px;
+  height: 45px;
+  border: 1px solid #E5E2DC;
+  color: var(--navy);
+  font-size: 20px;
+  transition: .3s ease;
+}
+
+.gst-download-button:hover {
+  border-color: var(--gold);
+  color: #A58243;
+}
+
+.gst-note {
+  margin-top: 18px;
+  color: #99938A;
+  font-size: 11px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+  .credentials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .credential-info-card {
+    min-height: 440px;
+  }
+
+  .gst-pdf-preview {
+    height: 500px;
+  }
+}
+
+@media (max-width: 550px) {
+  .credentials-section {
+    padding: 70px 0;
+  }
+
+  .credential-info-card,
+  .gst-card {
+    padding: 27px 22px;
+  }
+
+  .gst-card-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .gst-pdf-preview {
+    height: 430px;
+  }
+
+  .credential-bottom {
+    flex-direction: column;
+  }
+}
+
+  </style>
+</MainLayout>

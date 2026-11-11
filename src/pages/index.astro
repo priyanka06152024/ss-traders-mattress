@@ -1,0 +1,1590 @@
+
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import ProductCard from "../components/ProductCard.astro";
+import HeroSlider from "../components/HeroSlider.astro";
+import { products } from "../data/products.js";
+import { business } from "../data/site.js";
+
+const featured = products.slice(0, 4);
+const phoneNumber = String(business.phone || "").replace(/\D/g, "");
+const whatsappNumber = phoneNumber.startsWith("91")
+  ? phoneNumber
+  : `91${phoneNumber}`;
+
+const benefits = [
+  {
+    number: "01",
+    title: "Wide Product Range",
+    description: "Explore different mattress and foam categories according to your comfort preferences."
+  },
+  {
+    number: "02",
+    title: "Comfort-Focused Choices",
+    description: "Find options for different sleeping preferences, support needs and budgets."
+  },
+  {
+    number: "03",
+    title: "Quality Focus",
+    description: "We place importance on product quality, durability and customer requirements."
+  },
+  {
+    number: "04",
+    title: "Local Assistance",
+    description: "Connect with our team in Aligarh for product information and enquiries."
+  }
+];
+
+const categories = [
+  "Orthopedic Mattresses",
+  "Foam Mattresses",
+  "Rebonded / Bonded Mattresses",
+  "Spring Mattresses",
+  "Memory Foam Mattresses",
+  "PU Foam",
+  "HR Foam"
+];
+---
+
+<MainLayout
+  title="SS Traders Mattress | Quality Mattresses & Foam Products in Aligarh"
+  description="Explore orthopedic, foam, spring, memory foam, PU foam and HR foam products at SS Traders Mattress in Aligarh, Uttar Pradesh. Contact us for enquiries."
+>
+
+
+<script>
+  const track = document.querySelector(".testimonial-track");
+  const prev = document.querySelector(".testimonial-prev");
+  const next = document.querySelector(".testimonial-next");
+  const current = document.querySelector(".testimonial-current");
+  const total = document.querySelector(".testimonial-total");
+  const progress = document.querySelector(".pagination-line span");
+
+  if (track && prev && next) {
+    const cards = [...track.querySelectorAll(".testimonial-card")];
+
+    const getStep = () => {
+      const card = cards[0];
+      const gap = parseFloat(getComputedStyle(track).gap) || 0;
+      return card.getBoundingClientRect().width + gap;
+    };
+
+    const updateSlider = () => {
+      const step = getStep();
+      const index = Math.round(track.scrollLeft / step);
+      const maxIndex = Math.max(
+        0,
+        Math.ceil((track.scrollWidth - track.clientWidth) / step)
+      );
+
+      current.textContent = String(index + 1).padStart(2, "0");
+      total.textContent = String(maxIndex + 1).padStart(2, "0");
+
+      progress.style.width =
+        `${((index + 1) / (maxIndex + 1)) * 100}%`;
+
+      prev.disabled = track.scrollLeft <= 2;
+      next.disabled =
+        track.scrollLeft >= track.scrollWidth - track.clientWidth - 2;
+    };
+
+    next.addEventListener("click", () => {
+      track.scrollBy({ left: getStep(), behavior: "smooth" });
+    });
+
+    prev.addEventListener("click", () => {
+      track.scrollBy({ left: -getStep(), behavior: "smooth" });
+    });
+
+    track.addEventListener("scroll", updateSlider, { passive: true });
+    window.addEventListener("resize", updateSlider);
+
+    updateSlider();
+  }
+</script>
+
+
+  <!-- HERO SLIDER -->
+  <HeroSlider business={business} />
+
+  <!-- FEATURED PRODUCTS -->
+  <section class="container-wide py-20 md:py-28">
+    <div class="mx-auto max-w-2xl text-center">
+      <p class="eyebrow">FIND YOUR COMFORT</p>
+
+      <h2 class="section-title mt-4">
+        Mattress options for the way you sleep.
+      </h2>
+
+      <p class="mt-5 leading-7 text-[var(--muted)]">
+        From foam to spring and support-focused options, explore our product
+        range and speak with us about the right fit for your needs.
+      </p>
+
+      <div class="gold-line mx-auto mt-7"></div>
+    </div>
+
+    <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {featured.map((product) => (
+        <ProductCard product={product} />
+      ))}
+    </div>
+
+    <div class="mt-10 text-center">
+      <a href="/products/" class="btn-outline">
+        View all 7 products <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ABOUT SS TRADERS -->
+  <section class="about-home bg-[var(--navy)] py-20 text-white md:py-28">
+    <div class="container-wide grid items-center gap-12 md:grid-cols-2">
+
+      <div>
+        <p class="eyebrow">ABOUT SS TRADERS MATTRESS</p>
+
+        <h2 class="mt-4 text-4xl font-bold leading-tight tracking-[-.04em] sm:text-5xl">
+          Comfort, choice and helpful service.
+        </h2>
+
+        <p class="mt-6 max-w-xl leading-8 text-white/70">
+          Based in Aligarh, Uttar Pradesh, SS Traders Mattress offers a range
+          of mattress and foam products for different comfort preferences
+          and budgets. Our focus is on product choice, quality and reliable
+          customer support.
+        </p>
+
+        <p class="mt-4 max-w-xl leading-8 text-white/70">
+          Whether you are looking for an orthopedic mattress, foam mattress
+          or a particular foam solution, we are here to help you explore
+          suitable options.
+        </p>
+
+        <a
+          href="/about/"
+          class="mt-8 inline-flex items-center gap-3 font-bold text-[var(--gold-light)] transition hover:gap-5"
+        >
+          Discover Our Story <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <div class="about-image overflow-hidden rounded-2xl">
+        <img
+          src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1100&q=82"
+          alt="Comfortable bedroom with a neatly made bed"
+          width="1100"
+          height="850"
+          loading="lazy"
+          class="aspect-[5/4] w-full object-cover transition duration-700 hover:scale-105"
+        />
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="container-wide py-20 md:py-28">
+    <div class="max-w-2xl">
+      <p class="eyebrow">WHY CHOOSE US</p>
+
+      <h2 class="section-title mt-4">
+        A better experience starts with the right choice.
+      </h2>
+
+      <p class="mt-5 leading-7 text-[var(--muted)]">
+        We understand that every customer has different comfort
+        requirements. Our aim is to make exploring mattress and foam
+        products simple and convenient.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {benefits.map((item) => (
+        <article class="benefit-card">
+          <span class="benefit-number">{item.number}</span>
+
+          <div class="benefit-icon">✦</div>
+
+          <h3>{item.title}</h3>
+
+          <p>{item.description}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- PRODUCT CATEGORIES -->
+  <section class="bg-[var(--paper)] py-20 md:py-28">
+    <div class="container-wide">
+      <div class="grid gap-8 md:grid-cols-2 md:items-end">
+        <div>
+          <p class="eyebrow">EXPLORE OUR RANGE</p>
+
+          <h2 class="section-title mt-4">
+            Something for every comfort preference.
+          </h2>
+        </div>
+
+        <p class="max-w-lg leading-8 text-[var(--muted)] md:justify-self-end">
+          Explore our mattress and foam categories. Our team can help you
+          enquire about suitable options based on your requirements.
+        </p>
+      </div>
+
+      <div class="category-grid mt-12">
+        {categories.map((category, index) => (
+          <a href="/products/" class="category-item">
+            <span class="category-index">
+              0{index + 1}
+            </span>
+
+            <span class="category-name">{category}</span>
+
+            <span class="category-arrow">↗</span>
+          </a>
+        ))}
+      </div>
+
+      <div class="mt-10">
+        <a href="/products/" class="btn-primary">
+          Explore All Products <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOMER COMMITMENT -->
+  <section class="commitment-home bg-[var(--navy)] py-20 text-white md:py-28">
+    <div class="container-wide grid gap-12 md:grid-cols-[.8fr_1.2fr] md:items-center">
+
+      <div>
+        <p class="eyebrow">OUR COMMITMENT</p>
+
+        <h2 class="text-4xl font-bold leading-tight tracking-[-.04em] sm:text-5xl">
+          Your comfort matters.
+          <span class="text-[var(--gold-light)]">Every day.</span>
+        </h2>
+      </div>
+
+      <div>
+        <p class="text-base leading-8 text-white/70">
+          At SS Traders Mattress, we believe choosing a mattress should
+          be a comfortable experience too. We focus on offering different
+          product options and helping customers make informed enquiries.
+        </p>
+
+        <p class="mt-5 text-base leading-8 text-white/70">
+          From understanding your requirements to exploring available
+          mattress and foam categories, we value every customer interaction.
+        </p>
+
+        <a
+          href="/contact/"
+          class="mt-8 inline-flex items-center gap-3 font-bold text-[var(--gold-light)] transition hover:gap-5"
+        >
+          Talk to Our Team <span>↗</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- UDYAM REGISTRATION -->
+ 
+<section class="udyam-section">
+  <div class="container-wide">
+    <div class="udyam-layout">
+
+      <div class="udyam-image">
+        <img
+          src="/images/mattress-showroom.webp"
+          alt="SS Traders Mattress showroom"
+          loading="lazy"
+          width="900"
+          height="700"
+        />
+        <div class="udyam-image-caption">
+          <span>SS TRADERS</span>
+          <span>ALIGARH, INDIA</span>
+        </div>
+      </div>
+
+      <div class="udyam-content">
+        <div class="udyam-topline">
+          <span class="udyam-check">✓</span>
+          <span>BUSINESS REGISTRATION</span>
+        </div>
+
+        <p class="udyam-small-label">OFFICIAL BUSINESS DETAILS</p>
+
+        <h2>
+          Registered business.<br />
+          <span>Trusted commitment.</span>
+        </h2>
+
+        <p class="udyam-description">
+          SS Traders Mattress shares its Udyam registration details
+          for customer reference and business transparency.
+        </p>
+
+        <div class="udyam-info">
+          <span>UDYAM REGISTRATION NUMBER</span>
+          <strong>UDYAM-UP-02-0115192</strong>
+        </div>
+
+        <a
+          href="https://udyamregistration.gov.in/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="udyam-button"
+        >
+          Visit Official Udyam Portal <span>↗</span>
+        </a>
+
+        <div class="udyam-footer">
+          <span>SS TRADERS MATTRESS</span>
+          <span>ALIGARH · UTTAR PRADESH</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- CUSTOMER FEEDBACK INVITATION -->
+  <section class="feedback-section bg-[var(--paper)] py-20 md:py-24">
+    <div class="container-wide grid gap-10 md:grid-cols-2 md:items-center">
+
+      <div>
+        <p class="eyebrow">CUSTOMER EXPERIENCE</p>
+
+        <h2 class="section-title mt-4">
+          Your feedback helps us serve you better.
+        </h2>
+
+        <p class="mt-5 max-w-xl leading-8 text-[var(--muted)]">
+          Every enquiry and interaction matters to us. We welcome your
+          questions, suggestions and feedback as we continue to serve
+          customers looking for mattress and foam products.
+        </p>
+      </div>
+
+      <div class="feedback-card">
+        <span class="feedback-star">✦ ✦ ✦ ✦ ✦</span>
+
+        <h3>Have you visited us?</h3>
+
+        <p>
+          Share your experience or get in touch with our team for
+          product-related assistance.
+        </p>
+
+        <a href="/contact/" class="btn-primary mt-6">
+          Share Your Feedback <span>↗</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT INFORMATION -->
+  <section class="container-wide py-20 md:py-28">
+    <div class="contact-home">
+
+      <div class="contact-heading">
+        <p class="eyebrow">GET IN TOUCH</p>
+
+        <h2>
+          Let's find the right comfort for you.
+        </h2>
+
+        <p>
+          Have questions about our products? Contact SS Traders Mattress
+          for product information and enquiries.
+        </p>
+      </div>
+
+      <div class="contact-details">
+
+        <div class="contact-detail">
+          <span class="contact-icon">☎</span>
+          <div>
+            <span>CALL US</span>
+            <a href={`tel:${business.phone}`}>
+              {business.phone}
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <span class="contact-icon">⌖</span>
+          <div>
+            <span>OUR LOCATION</span>
+            <p>{business.address}</p>
+          </div>
+        </div>
+
+        <div class="contact-actions">
+          <a href="/contact/" class="contact-main-btn">
+            Contact Us <span>↗</span>
+          </a>
+
+          {phoneNumber && (
+            <a
+              href={`https://wa.me/${whatsappNumber}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="whatsapp-btn"
+            >
+              WhatsApp Us <span>↗</span>
+            </a>
+          )}
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="bg-[var(--navy)] px-5 py-20 text-center text-white md:py-24">
+    <div class="mx-auto max-w-3xl">
+      <p class="eyebrow">SS TRADERS MATTRESS · ALIGARH</p>
+
+      <h2 class="text-4xl font-bold leading-tight tracking-[-.04em] sm:text-5xl">
+        Make comfort a part of your everyday life.
+      </h2>
+
+      <p class="mx-auto mt-5 max-w-xl leading-8 text-white/65">
+        Explore our product range and connect with us to find options
+        that match your comfort requirements.
+      </p>
+
+      <a href="/contact/" class="final-cta-btn mt-8 inline-flex">
+        Enquire Now <span>↗</span>
+      </a>
+    </div>
+
+
+
+<!-- TESTIMONIALS SECTION -->
+
+<!-- TESTIMONIALS -->
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <div class="testimonials-wrapper">
+
+    <div class="testimonials-heading">
+      <span class="testimonials-label">OUR TESTIMONIALS</span>
+      <h2>What Our <span>Customers</span> Say</h2>
+      <p>Real experiences and feedback from our valued customers.</p>
+    </div>
+
+    <div class="testimonial-slider">
+
+      <button class="testimonial-arrow testimonial-prev" aria-label="Previous testimonials">
+        &#8592;
+      </button>
+
+      <div class="testimonial-track">
+
+        <article class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-review">
+            “Add your genuine customer review here. Share their experience
+            about the mattress quality and overall service.”
+          </p>
+          <div class="testimonial-user">
+            <div class="testimonial-avatar">C</div>
+            <div>
+              <h4>Customer Name</h4>
+              <span>Customer</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card featured-testimonial">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-review">
+            “Add another genuine customer experience here. A short and
+            honest review makes your business more trustworthy.”
+          </p>
+          <div class="testimonial-user">
+            <div class="testimonial-avatar">C</div>
+            <div>
+              <h4>Customer Name</h4>
+              <span>Customer</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-review">
+            “Add a third customer review here describing their experience
+            with your products and customer support.”
+          </p>
+          <div class="testimonial-user">
+            <div class="testimonial-avatar">C</div>
+            <div>
+              <h4>Customer Name</h4>
+              <span>Customer</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-review">
+            “Add another genuine review from a customer who has purchased
+            a mattress or foam product.”
+          </p>
+          <div class="testimonial-user">
+            <div class="testimonial-avatar">C</div>
+            <div>
+              <h4>Customer Name</h4>
+              <span>Customer</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <button class="testimonial-arrow testimonial-next" aria-label="Next testimonials">
+        &#8594;
+      </button>
+
+    </div>
+
+    <div class="testimonial-pagination">
+      <span class="testimonial-current">01</span>
+      <span class="pagination-line"><span></span></span>
+      <span class="testimonial-total">04</span>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+  <!-- FREQUENTLY ASKED QUESTIONS -->
+  <section class="faq-section bg-[var(--paper)] py-20 md:py-28">
+    <div class="container-wide">
+      <div class="grid gap-12 lg:grid-cols-[.8fr_1.2fr]">
+
+        <div>
+          <p class="eyebrow">GOT QUESTIONS?</p>
+
+          <h2 class="section-title mt-4">
+            Frequently asked questions.
+          </h2>
+
+          <p class="mt-5 max-w-md text-sm leading-8 text-[var(--muted)]">
+            Find answers to common questions about our mattress and foam
+            product range. If you need more information, feel free to
+            contact our team.
+          </p>
+
+          <a href="/contact/" class="btn-primary mt-8 inline-flex">
+            Ask Us a Question <span>↗</span>
+          </a>
+        </div>
+
+        <div class="faq-list">
+          {[
+            {
+              q: "What types of mattresses are available at SS Traders?",
+              a: "Our product range includes orthopedic, foam, rebonded or bonded, spring and memory foam mattresses. Contact us to enquire about available options."
+            },
+            {
+              q: "Do you offer orthopedic mattresses?",
+              a: "Yes, orthopedic mattresses are included in our product range. You can contact our team to discuss your comfort and support requirements."
+            },
+            {
+              q: "What is the difference between foam and spring mattresses?",
+              a: "Foam mattresses use foam materials for cushioning, while spring mattresses use a spring-based support system. The right choice depends on your preferred comfort and sleeping needs."
+            },
+            {
+              q: "Do you provide PU foam and HR foam?",
+              a: "Yes, PU foam and HR foam are among the foam product categories offered by SS Traders Mattress. Contact us for product-related details."
+            },
+            {
+              q: "How do I choose the right mattress?",
+              a: "Consider your preferred firmness, sleeping position, comfort requirements and budget. Our team can help you explore different mattress categories."
+            },
+            {
+              q: "Where is SS Traders Mattress located?",
+              a: "SS Traders Mattress is based in Aligarh, Uttar Pradesh. Visit our Contact page for location details and directions."
+            },
+            {
+              q: "How can I enquire about product prices?",
+              a: "You can call or WhatsApp our team directly, or use the enquiry form on our Contact page to ask about product details and pricing."
+            },
+            {
+              q: "How can I contact SS Traders Mattress?",
+              a: "You can reach us through the phone and WhatsApp details provided on our website or send an enquiry through our Contact page."
+            }
+          ].map((item, index) => (
+            <details class="faq-item" name="ss-faq">
+              <summary>
+                <span class="faq-question">
+                  <span class="faq-number">0{index + 1}</span>
+                  {item.q}
+                </span>
+                <span class="faq-plus">+</span>
+              </summary>
+
+              <div class="faq-answer">
+                {item.a}
+              </div>
+            </details>
+          ))}
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- MATTRESS BUYING GUIDE -->
+  <section class="container-wide py-20 md:py-28">
+    <div class="mx-auto max-w-2xl text-center">
+      <p class="eyebrow">A LITTLE GUIDANCE</p>
+
+      <h2 class="section-title mt-4">
+        Things to consider before choosing a mattress.
+      </h2>
+
+      <p class="mt-5 text-sm leading-8 text-[var(--muted)]">
+        Choosing a mattress is a personal decision. Keep these important
+        factors in mind when exploring your options.
+      </p>
+
+      <div class="gold-line mx-auto mt-7"></div>
+    </div>
+
+    <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {[
+        {
+          n: "01",
+          title: "Comfort Preference",
+          text: "Think about whether you prefer a soft, medium or firm sleeping surface."
+        },
+        {
+          n: "02",
+          title: "Mattress Material",
+          text: "Explore foam, spring, memory foam and other available mattress types."
+        },
+        {
+          n: "03",
+          title: "Size & Space",
+          text: "Choose a mattress size that suits your bed frame and available room space."
+        },
+        {
+          n: "04",
+          title: "Your Budget",
+          text: "Compare suitable product options according to your budget and requirements."
+        }
+      ].map((item) => (
+        <article class="guide-card">
+          <span>{item.n}</span>
+          <h3>{item.title}</h3>
+          <p>{item.text}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  </section>
+
+  <style>
+    .about-image img {
+      display: block;
+    }
+
+    .benefit-card {
+      padding: 30px 25px;
+      min-height: 270px;
+      border: 1px solid #e8e8e8;
+      border-radius: 14px;
+      transition: .35s ease;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-7px);
+      border-color: var(--gold);
+      box-shadow: 0 15px 35px rgba(0,37,86,.07);
+    }
+
+    .benefit-number {
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .benefit-icon {
+      margin-top: 27px;
+      color: var(--gold);
+      font-size: 25px;
+    }
+
+    .benefit-card h3 {
+      margin-top: 18px;
+      color: var(--navy);
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .benefit-card p {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 1px solid #ddd;
+    }
+
+    .category-item {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      min-height: 88px;
+      padding: 20px 12px;
+      border-bottom: 1px solid #ddd;
+      color: var(--navy);
+      transition: .3s ease;
+    }
+
+    .category-item:nth-child(odd) {
+      border-right: 1px solid #ddd;
+    }
+
+    .category-item:hover {
+      background: white;
+      padding-left: 22px;
+    }
+
+    .category-index {
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .category-name {
+      flex: 1;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .category-arrow {
+      color: var(--gold);
+      font-size: 18px;
+    }
+
+
+.udyam-section {
+  padding: 110px 0;
+  background: #F5F3EE;
+}
+
+.udyam-layout {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  min-height: 510px;
+  overflow: hidden;
+  background: #FFFFFF;
+  border: 1px solid #EAE6DE;
+  box-shadow: 0 20px 60px rgba(40, 35, 25, .06);
+}
+
+/* IMAGE */
+
+.udyam-image {
+  position: relative;
+  min-height: 510px;
+  overflow: hidden;
+}
+
+.udyam-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 510px;
+  object-fit: cover;
+  transition: transform .8s ease;
+}
+
+.udyam-layout:hover .udyam-image img {
+  transform: scale(1.04);
+}
+
+.udyam-image::after {
+  content: "";
+  position: absolute;
+  inset: 50% 0 0;
+  background: linear-gradient(transparent, rgba(20, 20, 20, .55));
+}
+
+.udyam-image-caption {
+  position: absolute;
+  z-index: 2;
+  bottom: 28px;
+  left: 30px;
+  right: 30px;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+/* CONTENT */
+
+.udyam-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 65px 55px;
+  overflow: hidden;
+  color: #252B32;
+  background: #FFFFFF;
+}
+
+.udyam-content::after {
+  content: "UDYAM";
+  position: absolute;
+  right: -10px;
+  bottom: 5px;
+  color: rgba(198, 161, 91, .07);
+  font-size: 90px;
+  font-weight: 800;
+  letter-spacing: -5px;
+  pointer-events: none;
+}
+
+.udyam-topline {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #A58243;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.udyam-check {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid #C6A15B;
+  border-radius: 50%;
+  color: #A58243;
+  font-size: 14px;
+}
+
+.udyam-small-label {
+  margin-top: 42px;
+  color: #A58243;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.udyam-content h2 {
+  margin-top: 15px;
+  color: #252B32;
+  font-size: clamp(30px, 3.5vw, 45px);
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+  font-weight: 600;
+}
+
+.udyam-content h2 span {
+  color: #A58243;
+}
+
+.udyam-description {
+  max-width: 430px;
+  margin-top: 20px;
+  color: #777D84;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.udyam-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 30px;
+  padding: 20px;
+  border: 1px solid #EAE6DE;
+  background: #F9F8F5;
+}
+
+.udyam-info span {
+  color: #89847B;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+}
+
+.udyam-info strong {
+  color: #252B32;
+  font-size: clamp(15px, 2vw, 20px);
+  letter-spacing: .5px;
+  overflow-wrap: anywhere;
+}
+
+.udyam-button {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  width: fit-content;
+  margin-top: 25px;
+  padding: 15px 20px;
+  background: #C6A15B;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: .3s ease;
+}
+
+.udyam-button:hover {
+  background: #252B32;
+  transform: translateY(-3px);
+}
+
+.udyam-button span {
+  font-size: 17px;
+}
+
+.udyam-footer {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 40px;
+  padding-top: 18px;
+  border-top: 1px solid #EAE6DE;
+  color: #99938A;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+  .udyam-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .udyam-image,
+  .udyam-image img {
+    min-height: 380px;
+  }
+
+  .udyam-content {
+    padding: 50px 35px;
+  }
+}
+
+@media (max-width: 500px) {
+  .udyam-section {
+    padding: 65px 0;
+  }
+
+  .udyam-image,
+  .udyam-image img {
+    min-height: 290px;
+  }
+
+  .udyam-content {
+    padding: 40px 24px;
+  }
+
+  .udyam-footer {
+    flex-direction: column;
+  }
+}
+
+
+    .feedback-card {
+      padding: 35px;
+      border: 1px solid #e8e1d4;
+      border-radius: 15px;
+      background: white;
+    }
+
+    .feedback-star {
+      color: var(--gold);
+      letter-spacing: 4px;
+    }
+
+    .feedback-card h3 {
+      margin-top: 20px;
+      color: var(--navy);
+      font-size: 23px;
+      font-weight: 700;
+    }
+
+    .feedback-card p {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .contact-home {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .contact-heading h2 {
+      color: var(--navy);
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -.04em;
+    }
+
+    .contact-heading > p:last-child {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 17px;
+    }
+
+    .contact-icon {
+      display: grid;
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+      place-items: center;
+      border: 1px solid #eee;
+      border-radius: 50%;
+      background: var(--paper);
+      color: var(--gold);
+      font-size: 20px;
+    }
+
+    .contact-detail div > span {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+    }
+
+    .contact-detail a,
+    .contact-detail p {
+      display: block;
+      margin-top: 6px;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.7;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .contact-main-btn,
+    .whatsapp-btn,
+    .final-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 25px;
+      padding: 16px 22px;
+      font-size: 12px;
+      font-weight: 700;
+      transition: .3s ease;
+    }
+
+    .contact-main-btn {
+      background: var(--navy);
+      color: white;
+    }
+
+    .contact-main-btn:hover {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    .whatsapp-btn {
+      border: 1px solid #ddd;
+      color: var(--navy);
+    }
+
+    .whatsapp-btn:hover {
+      border-color: var(--gold);
+      background: var(--paper);
+    }
+
+    .final-cta-btn {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    .final-cta-btn:hover {
+      background: var(--gold-light);
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 768px) {
+      .category-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .category-item:nth-child(odd) {
+        border-right: 0;
+      }
+
+      .contact-home {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .udyam-card {
+        flex-direction: column;
+        padding: 28px 22px;
+      }
+
+      .udyam-card h2 {
+        font-size: 24px;
+      }
+
+      .udyam-number {
+        width: 100%;
+        overflow-wrap: anywhere;
+      }
+
+      .udyam-number strong {
+        font-size: 14px;
+      }
+
+      .udyam-watermark {
+        font-size: 65px;
+      }
+    }
+
+
+    
+
+.testimonials-section {
+  padding: 110px 7%;
+  background: #fff;
+  overflow: hidden;
+}
+
+.testimonials-wrapper {
+  max-width: 1250px;
+  margin: auto;
+}
+
+.testimonials-heading {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.testimonials-label {
+  color: #C6A15B;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.testimonials-heading h2 {
+  margin: 17px 0 12px;
+  color: #002556;
+  font-size: clamp(36px, 5vw, 58px);
+  line-height: 1.1;
+  letter-spacing: -2px;
+}
+
+.testimonials-heading h2 span {
+  color: #C6A15B;
+}
+
+.testimonials-heading p {
+  color: #777F8A;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.testimonial-slider {
+  position: relative;
+  padding: 0 65px;
+}
+
+.testimonial-track {
+  display: flex;
+  gap: 22px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 12px 2px 25px;
+}
+
+.testimonial-track::-webkit-scrollbar {
+  display: none;
+}
+
+.testimonial-card {
+  flex: 0 0 calc((100% - 44px) / 3);
+  min-width: 0;
+  padding: 35px 30px;
+  background: #F5F6F8;
+  border: 1px solid #ECEEF1;
+  scroll-snap-align: start;
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 18px 40px rgba(0, 37, 86, .08);
+}
+
+.featured-testimonial {
+  background: #002556;
+  border-color: #002556;
+}
+
+.testimonial-stars {
+  color: #C6A15B;
+  font-size: 19px;
+  letter-spacing: 4px;
+  margin-bottom: 25px;
+}
+
+.testimonial-review {
+  min-height: 115px;
+  color: #596575;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.featured-testimonial .testimonial-review {
+  color: rgba(255,255,255,.8);
+}
+
+.testimonial-user {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 25px;
+  padding-top: 22px;
+  border-top: 1px solid #E1E4E9;
+}
+
+.featured-testimonial .testimonial-user {
+  border-color: rgba(255,255,255,.2);
+}
+
+.testimonial-avatar {
+  width: 45px;
+  height: 45px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #C6A15B;
+  color: #002556;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.testimonial-user h4 {
+  margin: 0 0 5px;
+  color: #002556;
+  font-size: 14px;
+}
+
+.featured-testimonial .testimonial-user h4 {
+  color: white;
+}
+
+.testimonial-user span {
+  color: #89919C;
+  font-size: 11px;
+}
+
+.featured-testimonial .testimonial-user span {
+  color: rgba(255,255,255,.6);
+}
+
+/* SIDE ARROWS */
+
+.testimonial-arrow {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #DDE1E7;
+  border-radius: 50%;
+  background: #fff;
+  color: #002556;
+  font-size: 22px;
+  cursor: pointer;
+  transition: all .3s ease;
+  box-shadow: 0 5px 20px rgba(0, 37, 86, .08);
+}
+
+.testimonial-prev {
+  left: 0;
+}
+
+.testimonial-next {
+  right: 0;
+}
+
+.testimonial-arrow:hover {
+  background: #002556;
+  color: #fff;
+  border-color: #002556;
+  box-shadow: 0 8px 22px rgba(0, 37, 86, .2);
+}
+
+.testimonial-arrow:disabled {
+  opacity: .35;
+  cursor: not-allowed;
+}
+
+/* PAGINATION */
+
+.testimonial-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 22px;
+  color: #89919C;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.testimonial-current {
+  color: #002556;
+}
+
+.pagination-line {
+  width: 100px;
+  height: 2px;
+  background: #E5E8ED;
+  overflow: hidden;
+}
+
+.pagination-line span {
+  display: block;
+  width: 25%;
+  height: 100%;
+  background: #C6A15B;
+  transition: width .3s ease;
+}
+
+@media (max-width: 900px) {
+  .testimonial-card {
+    flex: 0 0 calc((100% - 22px) / 2);
+  }
+}
+
+@media (max-width: 600px) {
+  .testimonials-section {
+    padding: 75px 5%;
+  }
+
+  .testimonials-heading {
+    margin-bottom: 35px;
+  }
+
+  .testimonial-slider {
+    padding: 0 38px;
+  }
+
+  .testimonial-card {
+    flex: 0 0 100%;
+    padding: 30px 23px;
+  }
+
+  .testimonial-review {
+    min-height: auto;
+  }
+
+  .testimonial-arrow {
+    width: 34px;
+    height: 34px;
+    font-size: 17px;
+  }
+}
+
+
+
+
+
+/* FAQ SECTION */
+.faq-list {
+  border-top: 1px solid #dedede;
+}
+
+.faq-item {
+  border-bottom: 1px solid #dedede;
+}
+
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 23px 5px;
+  cursor: pointer;
+  list-style: none;
+  color: var(--navy);
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-question {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+.faq-number {
+  color: var(--gold);
+  font-size: 11px;
+  flex-shrink: 0;
+}
+
+.faq-plus {
+  color: var(--gold);
+  font-size: 25px;
+  font-weight: 400;
+  transition: transform .3s ease;
+}
+
+.faq-item[open] .faq-plus {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  padding: 0 35px 24px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.9;
+  animation: faqReveal .3s ease;
+}
+
+@keyframes faqReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* BUYING GUIDE */
+.guide-card {
+  padding: 30px 25px;
+  min-height: 230px;
+  border: 1px solid #e8e8e8;
+  border-radius: 14px;
+  transition: .35s ease;
+}
+
+.guide-card:hover {
+  transform: translateY(-7px);
+  border-color: var(--gold);
+  box-shadow: 0 15px 35px rgba(0,37,86,.07);
+}
+
+.guide-card > span {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.guide-card h3 {
+  margin-top: 35px;
+  color: var(--navy);
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.guide-card p {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+@media (max-width: 640px) {
+  .faq-item summary {
+    gap: 12px;
+    padding: 19px 0;
+  }
+
+  .faq-question {
+    gap: 10px;
+    font-size: 13px;
+  }
+
+  .faq-answer {
+    padding-left: 25px;
+    padding-right: 20px;
+  }
+}
+
+  </style>
+
+</MainLayout>

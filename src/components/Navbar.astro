@@ -1,0 +1,47 @@
+---
+import { business } from "../data/site.js";
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/about/", label: "About Us" },
+  { href: "/products/", label: "Products" },
+  { href: "/contact/", label: "Contact" },
+];
+const currentPath = Astro.url.pathname;
+---
+<header class="sticky top-0 z-50 border-b border-slate-100 bg-white/95 backdrop-blur-xl">
+  <div class="container-wide flex min-h-[82px] items-center justify-between gap-5">
+    <a href="/" class="flex shrink-0 items-center" aria-label="SS Traders Mattress home">
+      <img src="/images/ss-traders-logo.jpeg" alt="SS Traders Mattress — Quality Comfort for Better Sleep" width="210" height="142" class="h-[62px] w-auto object-contain" />
+    </a>
+    <button id="menu-toggle" class="grid size-11 place-items-center rounded-full border border-slate-200 text-[var(--navy)] md:hidden" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-navigation">
+      <span class="text-2xl leading-none" aria-hidden="true">☰</span>
+    </button>
+    <nav id="primary-navigation" class="absolute left-0 right-0 top-full hidden border-b border-slate-100 bg-white px-5 py-5 shadow-lg md:static md:flex md:items-center md:gap-8 md:border-0 md:bg-transparent md:p-0 md:shadow-none" aria-label="Main navigation">
+      {links.map((link) => (
+        <a href={link.href} aria-current={currentPath === link.href ? "page" : undefined} class={`block py-3 text-sm font-semibold transition-colors hover:text-[var(--gold)] md:py-2 ${currentPath === link.href ? "text-[var(--gold)]" : "text-[var(--navy)]"}`}>
+          {link.label}
+        </a>
+      ))}
+      <a href={`https://wa.me/${business.phone.replace("+", "")}?text=${encodeURIComponent("Hello SS Traders Mattress, I would like to enquire about your mattresses.")}`} class="btn-primary mt-3 md:mt-0">Enquire Now <span aria-hidden="true">↗</span></a>
+    </nav>
+  </div>
+</header>
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>("#menu-toggle");
+  const nav = document.querySelector<HTMLElement>("#primary-navigation");
+  toggle?.addEventListener("click", () => {
+    const isOpen = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute("aria-expanded", String(!isOpen));
+    toggle.setAttribute("aria-label", isOpen ? "Open navigation menu" : "Close navigation menu");
+    nav?.classList.toggle("hidden", isOpen);
+  });
+  nav?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      if (window.matchMedia("(max-width: 767px)").matches) {
+        nav.classList.add("hidden");
+        toggle?.setAttribute("aria-expanded", "false");
+        toggle?.setAttribute("aria-label", "Open navigation menu");
+      }
+    });
+  });
+</script>

@@ -1,0 +1,56 @@
+---
+import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import { business } from "../data/site.js";
+const {
+  title = "SS Traders Mattress | Mattresses & Foam Products in Aligarh",
+  description = "Explore orthopedic, foam, rebonded, spring, memory foam, PU foam and HR foam mattresses at SS Traders Mattress, Aligarh, Uttar Pradesh.",
+  canonical = Astro.url.href,
+} = Astro.props;
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: business.name,
+  url: business.website,
+  telephone: business.phone,
+  email: business.email,
+  description,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Dhorra Quarsi Bypass Road, In Front of Saleem Wali Puliya, FN/2, Fatehnagar, Maheshpur Masjid, Abu Bakar Gali",
+    addressLocality: "Aligarh",
+    addressRegion: "Uttar Pradesh",
+    postalCode: "202002",
+    addressCountry: "IN"
+  }
+};
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#082653" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="SS Traders Mattress" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={`${business.website}/images/ss-traders-logo.jpeg`} />
+    <title>{title}</title>
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </head>
+  <body>
+    <a href="#main-content" class="sr-only z-[100] rounded bg-white p-3 text-[var(--navy)] focus:not-sr-only focus:fixed focus:left-4 focus:top-4">Skip to main content</a>
+    <Navbar />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer />
+    <a href={`https://wa.me/${business.phone.replace("+", "")}?text=${encodeURIComponent("Hello SS Traders Mattress, I would like to know more about your products.")}`} target="_blank" rel="noopener noreferrer" aria-label="Chat with SS Traders Mattress on WhatsApp" class="fixed bottom-5 right-5 z-40 grid size-14 place-items-center rounded-full bg-[#1fae61] text-2xl text-white shadow-xl transition hover:-translate-y-1 hover:bg-[#168c4c]">✆</a>
+  </body>
+</html>

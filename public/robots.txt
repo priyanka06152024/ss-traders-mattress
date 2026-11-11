@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.sstradersmattress.co.in/sitemap-index.xml
