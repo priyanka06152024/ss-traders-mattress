@@ -20,24 +20,29 @@ const categories = [
   description="Explore orthopedic, foam, rebonded, spring, memory foam, PU foam and HR foam products at SS Traders Mattress in Aligarh."
 >
   <!-- HERO -->
-  <section class="product-hero">
-    <div class="container-wide">
-      <p class="eyebrow">EXPLORE OUR COLLECTION</p>
-      <h1 class="product-hero-title">
-        Comfort begins with<br />
-        <span>the right choice.</span>
-      </h1>
-      <p class="product-hero-description">
-        Discover mattress and foam solutions designed around different
-        comfort preferences, sleeping needs and budgets.
-      </p>
+<section class="product-hero">
+  <div class="product-hero-image" aria-hidden="true"></div>
+  <div class="product-hero-overlay" aria-hidden="true"></div>
 
-      <div class="product-hero-meta">
-        <span>SS TRADERS MATTRESS</span>
-        <span>ALIGARH, UTTAR PRADESH</span>
-      </div>
+  <div class="container-wide product-hero-content">
+    <p class="eyebrow">EXPLORE OUR COLLECTION</p>
+
+    <h1 class="product-hero-title">
+      Comfort begins with<br />
+      <span>the right choice.</span>
+    </h1>
+
+    <p class="product-hero-description">
+      Discover mattress and foam solutions designed around different
+      comfort preferences, sleeping needs and budgets.
+    </p>
+
+    <div class="product-hero-meta">
+      <span>SS TRADERS MATTRESS</span>
+      <span>ALIGARH, UTTAR PRADESH</span>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- CATEGORY STRIP -->
   <section class="category-strip">
@@ -106,66 +111,84 @@ const categories = [
   </section>
 
   <style>
-    .product-hero {
-      padding: 105px 0 85px;
-      background: var(--navy);
-      color: white;
-      position: relative;
-      overflow: hidden;
-    }
+   /* PRODUCT HERO */
 
-    .product-hero::after {
-      content: "";
-      position: absolute;
-      width: 440px;
-      height: 440px;
-      right: -120px;
-      bottom: -260px;
-      border: 1px solid rgba(198, 161, 91, .3);
-      border-radius: 50%;
-      box-shadow:
-        0 0 0 45px rgba(198, 161, 91, .035),
-        0 0 0 90px rgba(198, 161, 91, .025);
-      pointer-events: none;
-    }
+.product-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 105px 0 85px;
+  min-height: 510px;
+  display: flex;
+  align-items: center;
+  background: var(--navy);
+  color: white;
+}
 
-    .product-hero .eyebrow {
-      color: var(--gold);
-    }
+.product-hero-image {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: url("https://images.unsplash.com/photo-1560185128-e173042f79dd?auto=format&fit=crop&w=2400&q=85");
+  background-size: cover;
+  background-position: center 55%;
+  transform: scale(1.02);
+}
 
-    .product-hero-title {
-      margin-top: 24px;
-      max-width: 850px;
-      font-size: clamp(44px, 7vw, 84px);
-      line-height: 1.04;
-      letter-spacing: -3px;
-      font-weight: 600;
-    }
+.product-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 25, 58, 0.72) 0%,
+    rgba(0, 37, 86, 0.35) 48%,
+    rgba(0, 37, 86, 0.08) 100%
+  );
+}
 
-    .product-hero-title span {
-      color: var(--gold);
-    }
+.product-hero-content {
+  position: relative;
+  z-index: 2;
+}
 
-    .product-hero-description {
-      max-width: 560px;
-      margin-top: 25px;
-      color: rgba(255,255,255,.7);
-      font-size: 15px;
-      line-height: 1.9;
-    }
+.product-hero .eyebrow {
+  color: var(--gold);
+}
 
-    .product-hero-meta {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      margin-top: 75px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,.18);
-      color: rgba(255,255,255,.55);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-    }
+.product-hero-title {
+  margin-top: 24px;
+  max-width: 850px;
+  font-size: clamp(44px, 7vw, 84px);
+  line-height: 1.04;
+  letter-spacing: -3px;
+  font-weight: 600;
+}
+
+.product-hero-title span {
+  color: var(--gold);
+}
+
+.product-hero-description {
+  max-width: 560px;
+  margin-top: 25px;
+  color: rgba(255,255,255,.9);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.product-hero-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 75px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,.35);
+  color: rgba(255,255,255,.85);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
 
     .category-strip {
       padding: 30px 0;

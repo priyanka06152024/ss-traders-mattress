@@ -2,10 +2,21 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 
-import certificatePage1 from "../../public/images/certificatePage1.webp";
-import certificatePage2 from "../../public/images/certificatePage2.webp";
-import certificatePage3 from "../../public/images/certificatePage3.webp";
+const gstPages = [
+  "/images/gstPage1.webp",
+  "/images/gstPage2.webp",
+  "/images/gstPage3.webp",
+];
 
+const certificatePages = [
+  "/images/certificatePage1.webp",
+  "/images/certificatePage2.webp",
+  "/images/certificatePage3.webp",
+];
+
+const udyamPages = [
+  "/images/udyam-page-1.webp",
+];
 
 const products = [
   {
@@ -46,14 +57,6 @@ const reasons = [
   ["03", "Quality Focus", "Committed to offering products with attention to quality and durability."],
   ["04", "Local Presence", "Convenient local contact and product enquiries in Aligarh."]
 ];
-
-const udyamPages = ["/images/udyam-page-1.webp"];
-
-const certificatePages = [
-  certificatePage1.src,
-  certificatePage2.src,
-  certificatePage3.src
-];
 ---
 
 <MainLayout
@@ -61,27 +64,32 @@ const certificatePages = [
   description="Discover SS Traders Mattress, your Aligarh-based supplier of orthopedic, foam, spring, memory foam and other mattress solutions."
 >
   <!-- HERO -->
-  <section class="relative overflow-hidden bg-[var(--navy)] py-24 text-white md:py-32">
-    <div class="container-wide relative z-10">
-      <p class="eyebrow">WHO WE ARE</p>
+  
+<section class="about-hero relative overflow-hidden bg-[var(--navy)] py-24 text-white md:py-32">
+  <div class="about-hero-image" aria-hidden="true"></div>
+  <div class="about-hero-overlay" aria-hidden="true"></div>
 
-      <h1 class="mt-5 max-w-4xl text-5xl font-extrabold tracking-[-.05em] sm:text-6xl lg:text-7xl">
-        Comfort begins with
-        <span class="text-[var(--gold-light)]">the right choice.</span>
-      </h1>
+  <div class="container-wide relative z-10">
+    <p class="eyebrow">WHO WE ARE</p>
 
-      <p class="mt-7 max-w-2xl text-base leading-8 text-white/70 md:text-lg">
-        Your trusted destination for mattress and foam products in Aligarh,
-        Uttar Pradesh. We believe better comfort starts with better choices.
-      </p>
+    <h1 class="mt-5 max-w-4xl text-5xl font-extrabold tracking-[-.05em] sm:text-6xl lg:text-7xl">
+      Comfort begins with
+      <span class="text-[var(--gold-light)]">the right choice.</span>
+    </h1>
 
-      <a href="/contact" class="about-btn mt-9 inline-flex">
-        Get in Touch <span>↗</span>
-      </a>
-    </div>
+    <p class="mt-7 max-w-2xl text-base leading-8 text-white/80 md:text-lg">
+      Your trusted destination for mattress and foam products in Aligarh,
+      Uttar Pradesh. We believe better comfort starts with better choices.
+    </p>
 
-    <div class="hero-decoration" aria-hidden="true">SS</div>
-  </section>
+    <a href="/contact" class="about-btn mt-9 inline-flex">
+      Get in Touch <span>↗</span>
+    </a>
+  </div>
+
+  <div class="hero-decoration" aria-hidden="true">SS</div>
+</section>
+
 
   <!-- ABOUT INTRODUCTION -->
   <section class="container-wide grid gap-12 py-20 md:grid-cols-2 md:items-center md:py-28">
@@ -219,102 +227,9 @@ const certificatePages = [
     </div>
   </section>
 
-  <!-- UDYAM CERTIFICATE -->
-  <section class="udyam-certificate-section">
-    <div class="container-wide">
-      <div class="udyam-heading">
-        <p class="eyebrow">BUSINESS REGISTRATION</p>
 
-        <h2 class="section-title">
-          Our business identity.
-          <span>Officially registered.</span>
-        </h2>
 
-        <p>
-          Explore the Udyam registration details of SS Traders Mattress.
-          Click the document to view it in full screen.
-        </p>
-      </div>
-
-      <div class="udyam-certificate-layout">
-        <div class="udyam-certificate-info">
-          <div class="udyam-mark">U</div>
-
-          <p class="udyam-small-label">GOVERNMENT OF INDIA</p>
-
-          <h3>Udyam Registration Certificate</h3>
-
-          <p class="udyam-text">
-            SS Traders Mattress has provided its Udyam registration
-            details as a business credential.
-          </p>
-
-          <div class="udyam-number-box">
-            <span>UDYAM REGISTRATION NUMBER</span>
-            <strong>UDYAM-UP-02-0115192</strong>
-          </div>
-
-          <div class="udyam-details">
-            <div>
-              <span>BUSINESS NAME</span>
-              <strong>SS Traders Mattress</strong>
-            </div>
-
-            <div>
-              <span>LOCATION</span>
-              <strong>Aligarh, Uttar Pradesh</strong>
-            </div>
-
-            <div>
-              <span>REGISTRATION TYPE</span>
-              <strong>MSME / Udyam</strong>
-            </div>
-          </div>
-
-          <a
-            href="https://udyamregistration.gov.in/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="udyam-portal-link"
-          >
-            Visit Official Udyam Portal <span>↗</span>
-          </a>
-        </div>
-
-        <button
-          type="button"
-          class="udyam-document-preview"
-          data-viewer-open="udyam"
-          aria-label="Open Udyam registration certificate"
-        >
-          <div class="document-top-label">
-            <span>REGISTRATION DOCUMENT</span>
-            <span>01 / 01</span>
-          </div>
-
-          <div class="udyam-document-image">
-            <img
-              src={certificatePage1.src}
-              alt="Udyam registration certificate"
-              loading="lazy"
-            />
-          </div>
-
-          <div class="document-click-overlay">
-            <span class="document-zoom-icon">↗</span>
-            <span>CLICK TO VIEW DOCUMENT</span>
-          </div>
-
-          <div class="document-bottom-label">
-            <span>SS TRADERS MATTRESS</span>
-            <span>UDYAM CERTIFICATE</span>
-          </div>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- GST / CERTIFICATE SECTION -->
+  <!-- GST CERTIFICATE SECTION -->
   <section class="gst-certificate-section">
     <div class="container-wide">
       <div class="gst-heading">
@@ -327,7 +242,7 @@ const certificatePages = [
           </h2>
 
           <p>
-            View the registration document provided by SS Traders
+            View the GST registration document provided by SS Traders
             Mattress. All three pages are available in the document viewer.
           </p>
         </div>
@@ -342,12 +257,101 @@ const certificatePages = [
         <button
           type="button"
           class="gst-document-preview"
-          data-viewer-open="certificate"
-          aria-label="Open registration certificate"
+          data-viewer-open="gst"
+          aria-label="Open GST registration certificate"
         >
           <img
-            src={certificatePage1.src}
-            alt="First page of registration certificate"
+            src={gstPages[0]}
+            alt="First page of GST registration certificate"
+            loading="lazy"
+          />
+
+          <span class="gst-preview-shade">
+            <span class="gst-zoom-icon">↗</span>
+            <strong>VIEW FULL GST CERTIFICATE</strong>
+            <small>3 DOCUMENT PAGES</small>
+          </span>
+
+          <span class="gst-page-number">PAGE 01 / 03</span>
+        </button>
+
+        <div class="gst-document-details">
+          <span class="gst-document-kicker">GST REGISTRATION DOCUMENT</span>
+
+          <h3>GST Registration Certificate</h3>
+
+          <p>
+            This document contains the GST registration information
+            provided by SS Traders Mattress. Open the preview to navigate
+            through all three pages.
+          </p>
+
+          <div class="gst-detail-row">
+            <span class="gst-detail-icon">GST</span>
+
+            <div>
+              <strong>GST Registration Certificate</strong>
+              <small>Image document · 3 pages</small>
+            </div>
+          </div>
+
+          <div class="gst-detail-actions">
+            <button
+              type="button"
+              data-viewer-open="gst"
+              class="gst-view-btn"
+            >
+              View GST Certificate <span>↗</span>
+            </button>
+
+            <a
+              href={gstPages[0]}
+              download="SS-Traders-GST-Page-1.webp"
+              class="gst-download-btn"
+              aria-label="Download GST certificate page"
+            >
+              ↓
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATE SECTION -->
+  <section class="gst-certificate-section certificate-section">
+    <div class="container-wide">
+      <div class="gst-heading">
+        <div>
+          <p class="eyebrow">BUSINESS CERTIFICATE</p>
+
+          <h2 class="section-title">
+            Business certificate.
+            <span>Our official document.</span>
+          </h2>
+
+          <p>
+            View the certificate document provided by SS Traders Mattress.
+            All three pages are available in the document viewer.
+          </p>
+        </div>
+
+        <div class="gst-heading-mark certificate-heading-mark">
+          <span>DOC</span>
+          <small>CERTIFICATE</small>
+        </div>
+      </div>
+
+      <div class="gst-document-layout">
+        <button
+          type="button"
+          class="gst-document-preview"
+          data-viewer-open="certificate"
+          aria-label="Open business certificate"
+        >
+          <img
+            src={certificatePages[0]}
+            alt="First page of business certificate"
             loading="lazy"
           />
 
@@ -361,21 +365,21 @@ const certificatePages = [
         </button>
 
         <div class="gst-document-details">
-          <span class="gst-document-kicker">OFFICIAL REGISTRATION DOCUMENT</span>
+          <span class="gst-document-kicker">OFFICIAL BUSINESS DOCUMENT</span>
 
-          <h3>Registration Certificate</h3>
+          <h3>Business Certificate</h3>
 
           <p>
-            This document contains the registration information
+            This document contains the certificate information
             provided by SS Traders Mattress. Open the preview to navigate
-            through the complete document.
+            through all three pages.
           </p>
 
           <div class="gst-detail-row">
             <span class="gst-detail-icon">DOC</span>
 
             <div>
-              <strong>Registration Certificate</strong>
+              <strong>Business Certificate</strong>
               <small>Image document · 3 pages</small>
             </div>
           </div>
@@ -390,7 +394,7 @@ const certificatePages = [
             </button>
 
             <a
-              href={certificatePage1.src}
+              href={certificatePages[0]}
               download="SS-Traders-Certificate-Page-1.webp"
               class="gst-download-btn"
               aria-label="Download certificate page"
@@ -428,7 +432,7 @@ const certificatePages = [
 
       <div class="lightbox-image-wrap">
         <img
-          src={certificatePage1.src}
+          src={udyamPages[0]}
           alt="Udyam certificate page 1"
           data-viewer-image
         />
@@ -459,18 +463,17 @@ const certificatePages = [
     </div>
   </div>
 
-  <!-- CERTIFICATE DOCUMENT VIEWER -->
- <!-- CERTIFICATE DOCUMENT VIEWER -->
-<div
-  class="document-lightbox"
-  data-document-viewer="certificate"
-  data-pages={JSON.stringify(certificatePages)}
-  aria-hidden="true"
->
+  <!-- GST DOCUMENT VIEWER -->
+  <div
+    class="document-lightbox"
+    data-document-viewer="gst"
+    data-pages={JSON.stringify(gstPages)}
+    aria-hidden="true"
+  >
     <div class="lightbox-header">
       <div>
-        <span>SS TRADERS MATTRESS · REGISTRATION</span>
-        <h3>Registration Certificate</h3>
+        <span>SS TRADERS MATTRESS · TAX REGISTRATION</span>
+        <h3>GST Registration Certificate</h3>
       </div>
 
       <button type="button" data-viewer-close aria-label="Close viewer">
@@ -485,8 +488,8 @@ const certificatePages = [
 
       <div class="lightbox-image-wrap">
         <img
-          src={certificatePage1.src}
-          alt="Registration certificate page 1"
+          src={gstPages[0]}
+          alt="GST certificate page 1"
           data-viewer-image
         />
       </div>
@@ -507,7 +510,62 @@ const certificatePages = [
       </div>
 
       <a
-        href={certificatePage1.src}
+        href={gstPages[0]}
+        download="SS-Traders-GST-Page-1.webp"
+      >
+        Download Page ↓
+      </a>
+    </div>
+  </div>
+
+  <!-- CERTIFICATE DOCUMENT VIEWER -->
+  <div
+    class="document-lightbox"
+    data-document-viewer="certificate"
+    data-pages={JSON.stringify(certificatePages)}
+    aria-hidden="true"
+  >
+    <div class="lightbox-header">
+      <div>
+        <span>SS TRADERS MATTRESS · BUSINESS CERTIFICATE</span>
+        <h3>Business Certificate</h3>
+      </div>
+
+      <button type="button" data-viewer-close aria-label="Close viewer">
+        ×
+      </button>
+    </div>
+
+    <div class="lightbox-body">
+      <button type="button" data-viewer-prev aria-label="Previous page">
+        ←
+      </button>
+
+      <div class="lightbox-image-wrap">
+        <img
+          src={certificatePages[0]}
+          alt="Business certificate page 1"
+          data-viewer-image
+        />
+      </div>
+
+      <button type="button" data-viewer-next aria-label="Next page">
+        →
+      </button>
+    </div>
+
+    <div class="lightbox-footer">
+      <span>
+        <b data-viewer-current>01</b> /
+        <span data-viewer-total>03</span>
+      </span>
+
+      <div class="lightbox-progress">
+        <span data-viewer-progress></span>
+      </div>
+
+      <a
+        href={certificatePages[0]}
         download="SS-Traders-Certificate-Page-1.webp"
       >
         Download Page ↓
@@ -537,16 +595,122 @@ const certificatePages = [
   </section>
 
   <style>
-    .hero-decoration {
-      position: absolute;
-      right: 5%;
-      bottom: -100px;
-      color: rgba(255,255,255,.035);
-      font-size: clamp(180px, 30vw, 420px);
-      font-weight: 900;
-      line-height: 1;
-      pointer-events: none;
-    }
+    /* HERO & GENERAL */
+/* ABOUT HERO */
+
+.about-hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-height: 510px;
+  padding: 90px 0;
+  overflow: hidden;
+  background: var(--navy);
+  color: white;
+}
+
+.about-hero-image {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: url("https://images.unsplash.com/photo-1560185128-e173042f79dd?auto=format&fit=crop&w=2400&q=85");
+  background-size: cover;
+  background-position: center 55%;
+  transform: scale(1.02);
+}
+
+.about-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 25, 58, 0.55) 0%,
+    rgba(0, 37, 86, 0.24) 48%,
+    rgba(0, 37, 86, 0.04) 100%
+  );
+}
+
+.about-hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.about-hero .eyebrow {
+  color: var(--gold);
+}
+
+.about-hero-title {
+  max-width: 850px;
+  margin-top: 20px;
+  color: white;
+  font-size: clamp(38px, 5.5vw, 66px);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -2px;
+}
+
+.about-hero-title span {
+  display: block;
+  color: var(--gold-light);
+}
+
+.about-hero-description {
+  max-width: 560px;
+  margin-top: 22px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.hero-decoration {
+  position: absolute;
+  right: 5%;
+  bottom: -75px;
+  z-index: 1;
+  color: rgba(255, 255, 255, 0.055);
+  font-size: clamp(160px, 25vw, 340px);
+  font-weight: 800;
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* MOBILE */
+
+@media (max-width: 640px) {
+  .about-hero {
+    min-height: 450px;
+    padding: 75px 0;
+  }
+
+  .about-hero-image {
+    background-position: 60% center;
+  }
+
+  .about-hero-overlay {
+    background: linear-gradient(
+      90deg,
+      rgba(0, 25, 58, 0.58),
+      rgba(0, 37, 86, 0.18)
+    );
+  }
+
+  .about-hero-title {
+    font-size: clamp(36px, 9vw, 48px);
+    letter-spacing: -1.3px;
+  }
+
+  .about-hero-description {
+    font-size: 13px;
+  }
+
+  .hero-decoration {
+    right: 3%;
+    bottom: -25px;
+    font-size: 150px;
+  }
+}
 
     .about-btn {
       align-items: center;
@@ -571,6 +735,8 @@ const certificatePages = [
       font-size: 14px;
       line-height: 2;
     }
+
+    /* PRODUCT CARDS */
 
     .product-box {
       padding: 30px;
@@ -622,6 +788,8 @@ const certificatePages = [
     }
 
     .product-box a:hover { color: var(--gold); gap: 16px; }
+
+    /* WHY CHOOSE US */
 
     .why-card {
       padding: 25px;
@@ -858,11 +1026,15 @@ const certificatePages = [
       font-size: 22px;
     }
 
-    /* GST / CERTIFICATE SECTION */
+    /* GST & CERTIFICATE SECTIONS */
 
     .gst-certificate-section {
       padding: 110px 0;
       background: #f3f5f8;
+    }
+
+    .certificate-section {
+      background: #fff;
     }
 
     .gst-heading {
@@ -1176,8 +1348,6 @@ const certificatePages = [
       overflow: hidden;
     }
 
-    /* IMPORTANT: FIT COMPLETE IMAGE INSIDE SCREEN */
-
     .lightbox-image-wrap img {
       display: block;
       width: 100%;
@@ -1351,15 +1521,17 @@ const certificatePages = [
     let activePage = 0;
     let lastFocusedElement = null;
 
-   function getPages(viewer) {
-  try {
-    return JSON.parse(viewer.dataset.pages || "[]");
-  } catch (error) {
-    console.error("Certificate pages could not be loaded:", error);
-    return [];
-  }
-}
+    // GET DOCUMENT PAGES
+    function getPages(viewer) {
+      try {
+        return JSON.parse(viewer.dataset.pages || "[]");
+      } catch (error) {
+        console.error("Document pages could not be loaded:", error);
+        return [];
+      }
+    }
 
+    // UPDATE CURRENT PAGE
     function updateViewer() {
       if (!activeViewer) return;
 
@@ -1367,59 +1539,55 @@ const certificatePages = [
 
       if (!pages.length) return;
 
-      const image = activeViewer.querySelector(
-        "[data-viewer-image]"
-      );
+      const image = activeViewer.querySelector("[data-viewer-image]");
+      const current = activeViewer.querySelector("[data-viewer-current]");
+      const total = activeViewer.querySelector("[data-viewer-total]");
+      const progress = activeViewer.querySelector("[data-viewer-progress]");
+      const previous = activeViewer.querySelector("[data-viewer-prev]");
+      const next = activeViewer.querySelector("[data-viewer-next]");
 
-      const current = activeViewer.querySelector(
-        "[data-viewer-current]"
-      );
-
-      const total = activeViewer.querySelector(
-        "[data-viewer-total]"
-      );
-
-      const progress = activeViewer.querySelector(
-        "[data-viewer-progress]"
-      );
-
-      const previous = activeViewer.querySelector(
-        "[data-viewer-prev]"
-      );
-
-      const next = activeViewer.querySelector(
-        "[data-viewer-next]"
-      );
+      if (!image) return;
 
       image.src = pages[activePage];
+      image.alt = `Document page ${activePage + 1}`;
 
-      image.alt = `${
-        activeViewer.dataset.documentViewer.toUpperCase()
-      } certificate page ${activePage + 1}`;
+      if (current) {
+        current.textContent = String(activePage + 1).padStart(2, "0");
+      }
 
-      current.textContent = String(activePage + 1).padStart(2, "0");
+      if (total) {
+        total.textContent = String(pages.length).padStart(2, "0");
+      }
 
-      total.textContent = String(pages.length).padStart(2, "0");
+      if (progress) {
+        progress.style.width =
+          `${((activePage + 1) / pages.length) * 100}%`;
+      }
 
-      progress.style.width =
-        `${((activePage + 1) / pages.length) * 100}%`;
+      if (previous) {
+        previous.disabled = activePage === 0;
+      }
 
-      previous.disabled = activePage === 0;
-
-      next.disabled = activePage === pages.length - 1;
+      if (next) {
+        next.disabled = activePage === pages.length - 1;
+      }
     }
 
+    // OPEN VIEWER
     function openViewer(type) {
       const viewer = document.querySelector(
         `[data-document-viewer="${type}"]`
       );
 
-      if (!viewer) return;
+      if (!viewer) {
+        console.error("Viewer not found:", type);
+        return;
+      }
 
       const pages = getPages(viewer);
 
       if (!pages.length) {
-        console.error("Certificate pages not found:", type);
+        console.error("Document pages not found:", type);
         return;
       }
 
@@ -1443,13 +1611,13 @@ const certificatePages = [
       viewer.querySelector("[data-viewer-close]")?.focus();
     }
 
+    // CLOSE VIEWER
     function closeViewer() {
       if (!activeViewer) return;
 
       const viewerToClose = activeViewer;
 
       viewerToClose.classList.remove("is-open");
-
       viewerToClose.setAttribute("aria-hidden", "true");
 
       document.body.classList.remove("document-viewer-open");
@@ -1464,32 +1632,27 @@ const certificatePages = [
       lastFocusedElement = null;
     }
 
+    // NEXT / PREVIOUS PAGE
     function changePage(direction) {
       if (!activeViewer) return;
 
       const pages = getPages(activeViewer);
-
       const newPage = activePage + direction;
 
       if (newPage < 0 || newPage >= pages.length) return;
 
       activePage = newPage;
-
       updateViewer();
     }
 
-    // OPEN VIEWER
+    // OPEN BUTTONS
+    document.querySelectorAll("[data-viewer-open]").forEach((button) => {
+      button.addEventListener("click", () => {
+        openViewer(button.dataset.viewerOpen);
+      });
+    });
 
-    document.querySelectorAll("[data-viewer-open]").forEach(
-      (button) => {
-        button.addEventListener("click", () => {
-          openViewer(button.dataset.viewerOpen);
-        });
-      }
-    );
-
-    // CLOSE AND PAGE NAVIGATION
-
+    // CLOSE AND NAVIGATION BUTTONS
     viewers.forEach((viewer) => {
       viewer.querySelector("[data-viewer-close]")?.addEventListener(
         "click",
@@ -1514,7 +1677,6 @@ const certificatePages = [
     });
 
     // KEYBOARD CONTROLS
-
     document.addEventListener("keydown", (event) => {
       if (!activeViewer) return;
 
