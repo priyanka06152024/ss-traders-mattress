@@ -134,3 +134,31 @@ a, button {
     transition-duration: .01ms !important;
   }
 }
+
+.top-info-bar {
+  height: 32px;
+}
+
+.info-marquee {
+  animation: info-marquee 120s linear infinite;
+}
+
+.info-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes info-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .info-marquee {
+    animation: none;
+  }
+}
