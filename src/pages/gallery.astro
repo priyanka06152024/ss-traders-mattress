@@ -1,0 +1,183 @@
+
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+const galleryImages = [
+  { src: "/images/gellery1.jpeg", alt: "SS Traders Mattress gallery image 1", number: "01" },
+  { src: "/images/gellary2.PNG", alt: "SS Traders Mattress gallery image 2", number: "02" },
+  { src: "/images/geller3.PNG", alt: "SS Traders Mattress gallery image 3", number: "03" },
+  { src: "/images/gellery4.PNG", alt: "SS Traders Mattress gallery image 4", number: "04" },
+  { src: "/images/gellery5.PNG", alt: "SS Traders Mattress gallery image 5", number: "05" },
+  { src: "/images/gellery6.PNG", alt: "SS Traders Mattress gallery image 6", number: "06" },
+  { src: "/images/gellery7.PNG", alt: "SS Traders Mattress gallery image 7", number: "07" },
+  { src: "/images/gellery8.PNG", alt: "SS Traders Mattress gallery image 8", number: "08" },
+];
+---
+
+<MainLayout
+  title="Gallery | SS Traders Mattress Aligarh"
+  description="Explore the gallery of SS Traders Mattress, Aligarh. Discover our mattress and foam products through photographs."
+>
+  <!-- HERO -->
+  <section class="gallery-hero relative isolate flex min-h-[390px] items-center overflow-hidden bg-[#222] text-white md:min-h-[470px]">
+    <div class="gallery-hero-image" aria-hidden="true"></div>
+    <div class="gallery-hero-overlay" aria-hidden="true"></div>
+
+    <div class="container-wide relative z-10 w-full py-24 md:py-32">
+      <div class="max-w-3xl">
+        <span class="mb-6 inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[.22em] text-[var(--gold-light)]">
+          <span class="h-px w-9 bg-[var(--gold)]"></span>
+          SS Traders Mattress
+        </span>
+
+        <h1 class="text-5xl font-semibold leading-[1.05] tracking-tight md:text-7xl">
+          Our <span class="text-[var(--gold)]">Gallery.</span>
+        </h1>
+
+        <p class="mt-6 max-w-xl text-sm leading-7 text-white/85 md:text-base">
+          A closer look at our products, quality and commitment to better comfort.
+          Explore the world of SS Traders Mattress.
+        </p>
+
+        <div class="mt-9 flex items-center gap-3 text-xs font-semibold uppercase tracking-[.16em] text-white/80">
+          <a href="/" class="transition hover:text-[var(--gold)]">Home</a>
+          <span class="text-[var(--gold)]">/</span>
+          <span class="text-[var(--gold)]">Gallery</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="bg-[#F7F7F5] py-20 md:py-28">
+    <div class="container-wide">
+
+      <div class="mb-12 flex flex-col justify-between gap-6 md:mb-16 md:flex-row md:items-end">
+        <div class="max-w-2xl">
+          <span class="text-xs font-bold uppercase tracking-[.2em] text-[var(--gold)]">
+            Moments & Collections
+          </span>
+
+          <h2 class="mt-4 text-3xl font-semibold leading-tight tracking-tight text-[var(--navy)] md:text-5xl">
+            A Glimpse Into <span class="text-[var(--gold)]">Our World.</span>
+          </h2>
+
+          <p class="mt-5 max-w-xl text-sm leading-7 text-slate-500 md:text-base">
+            Explore our collection and discover the quality, craftsmanship
+            and comfort that define SS Traders Mattress.
+          </p>
+        </div>
+
+        <div class="flex items-center gap-3 border-l-2 border-[var(--gold)] pl-5">
+          <span class="text-4xl font-semibold text-[var(--navy)]">08</span>
+          <span class="text-xs font-semibold uppercase leading-5 tracking-[.15em] text-slate-500">
+            Gallery<br />Images
+          </span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+        {galleryImages.map((image) => (
+          <div class="gallery-card group relative overflow-hidden bg-white" key={image.number}>
+            <div class="relative aspect-[4/5] overflow-hidden">
+              <img
+                src={image.src}
+                alt={image.alt}
+                loading="lazy"
+                decoding="async"
+                class="gallery-img h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105"
+              />
+
+              <div class="gallery-image-shade absolute inset-0"></div>
+
+              <div class="absolute bottom-5 left-5 right-5 flex items-end justify-between">
+                <span class="text-xs font-semibold tracking-[.2em] text-white">
+                  SS TRADERS
+                </span>
+
+                <span class="grid size-10 place-items-center rounded-full border border-white/70 text-lg text-white transition duration-300 group-hover:border-[var(--gold)] group-hover:bg-[var(--gold)] group-hover:text-[var(--navy)]">
+                  ↗
+                </span>
+              </div>
+
+              <span class="absolute left-5 top-5 text-sm font-semibold tracking-widest text-white">
+                {image.number}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="relative overflow-hidden bg-[var(--navy)] py-20 text-white md:py-24">
+    <div class="container-wide relative z-10 flex flex-col justify-between gap-8 md:flex-row md:items-center">
+      <div class="max-w-2xl">
+        <span class="text-xs font-bold uppercase tracking-[.2em] text-[var(--gold)]">
+          Find Your Comfort
+        </span>
+
+        <h2 class="mt-4 text-3xl font-semibold leading-tight md:text-5xl">
+          Looking for the <span class="text-[var(--gold)]">right mattress?</span>
+        </h2>
+
+        <p class="mt-5 text-sm leading-7 text-white/75 md:text-base">
+          Get in touch with our team and explore mattress solutions designed for your comfort.
+        </p>
+      </div>
+
+      <a
+        href="/contact/"
+        class="inline-flex w-fit shrink-0 items-center gap-4 rounded-full bg-[var(--gold)] px-7 py-4 text-sm font-bold text-[var(--navy)] transition duration-300 hover:-translate-y-1 hover:bg-white"
+      >
+        Get in Touch <span class="text-lg">↗</span>
+      </a>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .gallery-hero-image {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background-image: url("/images/hero1.webp");
+    background-size: cover;
+    background-position: center 55%;
+    transform: scale(1.02);
+  }
+
+  .gallery-hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.38);
+  }
+
+  .gallery-card {
+    border-radius: 3px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  }
+
+  .gallery-img {
+    display: block;
+    filter: none;
+    opacity: 1;
+  }
+
+  .gallery-image-shade {
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.45),
+      transparent 45%
+    );
+    pointer-events: none;
+  }
+
+  @media (max-width: 640px) {
+    .gallery-hero-overlay {
+      background: rgba(0, 0, 0, 0.42);
+    }
+  }
+</style>

@@ -5,6 +5,7 @@ const { business } = Astro.props;
 const phone = business?.phone || "";
 const phoneLink = phone.replace(/[^\d+]/g, "");
 
+
 const slides = [
   {
     eyebrow: "SS TRADERS MATTRESS",
@@ -12,8 +13,7 @@ const slides = [
     highlight: "Live Better.",
     description:
       "Experience the perfect combination of comfort, support and quality for a better night's sleep.",
-    image:
-      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=2000&q=85",
+    image: "/images/hero1.webp",
     alt: "Beautiful modern bedroom with a comfortable bed",
   },
   {
@@ -22,8 +22,7 @@ const slides = [
     highlight: "For You.",
     description:
       "Discover quality mattresses designed to make every moment of rest more comfortable.",
-    image:
-      "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=2000&q=85",
+    image: "/images/hero2.webp",
     alt: "Elegant bedroom with premium bedding",
   },
   {
@@ -32,8 +31,7 @@ const slides = [
     highlight: "Every Night.",
     description:
       "Explore our range of orthopedic, foam, rebonded and spring mattresses.",
-    image:
-      "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=2000&q=85",
+    image: "/images/hero3.webp",
     alt: "Comfortable bedroom interior",
   },
   {

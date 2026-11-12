@@ -4,7 +4,7 @@ export const products = [
     name: "Orthopedic Mattress",
     short: "Support-focused comfort for a more restful night's sleep.",
     description: "Explore orthopedic mattress options designed with supportive comfort in mind. Contact our team to discuss your preferred feel, dimensions and suitability.",
-    image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1000&q=82",
+    image: "/images/orthopedicfoam.webp",
     alt: "A neatly made bed in a calm, bright bedroom",
   },
   {
@@ -12,7 +12,7 @@ export const products = [
     name: "Foam Mattress",
     short: "Everyday comfort with practical foam options.",
     description: "Discover foam mattress options for everyday use, with choices to discuss according to your comfort preference and size requirements.",
-    image: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1000&q=82",
+    image: "/images/foam.webp",
     alt: "Comfortable mattress and bedding in a modern bedroom",
   },
   {
@@ -20,7 +20,7 @@ export const products = [
     name: "Rebonded / Bonded Mattress",
     short: "A firm-feel mattress option for practical needs.",
     description: "Ask us about rebonded and bonded mattress options, their available dimensions and the firmness that best suits your requirements.",
-    image: "https://images.unsplash.com/photo-1631679706909-1844bbd07221?auto=format&fit=crop&w=1000&q=82",
+    image: "/images/reboanded.webp",
     alt: "Minimal bedroom with a neatly styled bed",
   },
   {
@@ -28,7 +28,7 @@ export const products = [
     name: "Spring Mattress",
     short: "A classic mattress category with spring-based support.",
     description: "Explore spring mattress options and speak with our team about comfort preferences, sizes and product availability.",
-    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=82",
+    image: "/images/spring.webp",
     alt: "Bright bedroom with a large bed",
   },
   {
@@ -36,7 +36,7 @@ export const products = [
     name: "Memory Foam Mattress",
     short: "Comfort-led foam options for your sleep setup.",
     description: "Find out about memory foam mattress options and discuss the feel, dimensions and availability with SS Traders Mattress.",
-    image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1000&q=82",
+    image: "/images/memoryfoam.webp",
     alt: "Peaceful bedroom interior with soft neutral bedding",
   },
   {
@@ -44,7 +44,7 @@ export const products = [
     name: "PU Foam Mattress",
     short: "Versatile foam solutions for different requirements.",
     description: "Ask our team about PU foam mattress options, suitable dimensions and the product details available for your needs.",
-    image: "https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1000&q=82",
+    image: "/images/pu foam.webp",
     alt: "Simple contemporary bedroom with a comfortable bed",
   },
   {
@@ -52,7 +52,7 @@ export const products = [
     name: "HR Foam Mattress",
     short: "High-resilience foam options to explore.",
     description: "Explore HR foam mattress options with our team. We can help you check available sizes and discuss the product before you enquire.",
-    image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1000&q=82",
+    image: "/images/hrfoam.webp",
     alt: "Elegant bedroom with neutral interior styling",
   },
 ];
