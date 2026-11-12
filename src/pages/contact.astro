@@ -3,17 +3,22 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import { business } from "../data/site.js";
 import contactImg from "../../public/images/contact.webp";
+
+const whatsappNumber = String(business.phone).replace(/\D/g, "");
+const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(business.address)}`;
 ---
 
 <MainLayout
   title="Contact SS Traders Mattress | Aligarh, Uttar Pradesh"
-  description="Contact SS Traders Mattress in Aligarh for quality mattresses, foam products and enquiries."
+  description="Contact SS Traders Mattress in Aligarh for quality mattresses, foam products, pricing and enquiries. Call, WhatsApp or visit our store."
 >
-  <!-- Contact Hero -->
+  <!-- CONTACT HERO -->
   <section class="contact-hero">
     <div class="container">
       <span class="eyebrow">GET IN TOUCH</span>
+
       <h1>Let's talk <span>comfort.</span></h1>
+
       <p>
         Have a question or looking for the right mattress?
         We're here to help you find the perfect comfort.
@@ -21,84 +26,145 @@ import contactImg from "../../public/images/contact.webp";
     </div>
   </section>
 
-  <!-- Contact Details + Enquiry -->
+  <!-- CONTACT DETAILS + ENQUIRY -->
   <section class="contact-section">
     <div class="contact-grid container">
 
-      <!-- Left: Contact Information -->
+      <!-- LEFT: CONTACT INFORMATION -->
       <div class="contact-info">
         <span class="eyebrow">CONTACT INFORMATION</span>
+
         <h2>We'd love to<br />hear from you.</h2>
+
         <p class="info-description">
           Get in touch with SS Traders Mattress for product enquiries,
-          pricing and assistance.
+          pricing and assistance. Our team is always happy to help you
+          find the right comfort solution.
         </p>
 
+        <!-- MAIN PHONE -->
         <div class="info-item">
           <div class="info-icon">☎</div>
-          <div>
-            <span>Call / WhatsApp</span>
-            <a href={`tel:${business.phone}`}>{business.phone}</a>
-          </div>
-        </div>
 
-        <div class="info-item">
-          <div class="info-icon">✉</div>
           <div>
-            <span>Email</span>
-            <a href={`mailto:${business.email}`}>{business.email}</a>
-          </div>
-        </div>
+            <span>Main Contact Number · Call / WhatsApp</span>
 
-        <div class="info-item">
-          <div class="info-icon">⌖</div>
-          <div>
-            <span>Visit Our Store</span>
-            <p>{business.address}</p>
+            <a href={`tel:${business.phone}`}>
+              {business.phoneDisplay}
+            </a>
+
             <a
               class="direction-link"
-              href="https://www.google.com/maps/search/?api=1&query=SS+Traders+Aligarh"
+              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hello SS Traders Mattress, I would like to enquire about your mattresses.")}`}
               target="_blank"
               rel="noopener noreferrer"
             >
-              Get directions ↗
+              Chat on WhatsApp ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- SECONDARY PHONE -->
+        <div class="info-item">
+          <div class="info-icon">☎</div>
+
+          <div>
+            <span>Secondary Contact Number</span>
+
+            <a href={`tel:${business.secondaryPhone}`}>
+              {business.secondaryPhoneDisplay}
+            </a>
+          </div>
+        </div>
+
+        <!-- PRIMARY EMAIL -->
+        <div class="info-item">
+          <div class="info-icon">✉</div>
+
+          <div>
+            <span>Primary Email Address</span>
+
+            <a href={`mailto:${business.email}`}>
+              {business.email}
+            </a>
+          </div>
+        </div>
+
+        <!-- ALTERNATE EMAIL -->
+        <div class="info-item">
+          <div class="info-icon">✉</div>
+
+          <div>
+            <span>Alternate Email Address</span>
+
+            <a href={`mailto:${business.alternateEmail}`}>
+              {business.alternateEmail}
+            </a>
+          </div>
+        </div>
+
+        <!-- COMPLETE ADDRESS -->
+        <div class="info-item">
+          <div class="info-icon">⌖</div>
+
+          <div>
+            <span>Visit Our Store</span>
+
+            <p class="store-address">
+              {business.address}
+            </p>
+
+            <a
+              class="direction-link"
+              href={mapUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Get Directions ↗
             </a>
           </div>
         </div>
       </div>
 
-      <!-- Right: Enquiry Card -->
+      <!-- RIGHT: ENQUIRY CARD -->
       <div class="enquiry-card">
         <span class="eyebrow">QUICK ENQUIRY</span>
-        <h2>How can we help you?</h2>
-        <p>Share your requirements and we'll get back to you.</p>
 
-        <form
-          action={`https://wa.me/${String(business.phone).replace(/\D/g, "")}`}
-          method="get"
-          target="_blank"
-          id="contactForm"
-        >
+        <h2>How can we help you?</h2>
+
+        <p>
+          Share your requirements and we'll get back to you.
+        </p>
+
+        <form id="contactForm" data-whatsapp={whatsappNumber}>
+
           <label for="name">Your Name</label>
+
           <input
             type="text"
             id="name"
-            name="text"
+            name="name"
             placeholder="Enter your name"
+            autocomplete="name"
             required
           />
 
           <label for="phone">Phone Number</label>
+
           <input
             type="tel"
             id="phone"
+            name="phone"
             placeholder="Enter your phone number"
+            autocomplete="tel"
             required
           />
 
           <label for="message">Your Message</label>
+
           <textarea
             id="message"
+            name="message"
             placeholder="Tell us what you're looking for..."
             rows="4"
             required
@@ -107,13 +173,18 @@ import contactImg from "../../public/images/contact.webp";
           <button type="submit" class="submit-btn">
             Send Enquiry <span>↗</span>
           </button>
+
+          <p class="form-note">
+            Your enquiry will open directly in WhatsApp.
+          </p>
+
         </form>
       </div>
 
     </div>
   </section>
 
-  <!-- Full Width Store Photo -->
+  <!-- FULL WIDTH STORE PHOTO -->
   <section class="store-photo-section">
     <img
       src={contactImg.src}
@@ -122,12 +193,18 @@ import contactImg from "../../public/images/contact.webp";
     />
   </section>
 
-  <!-- Full Width Map -->
+  <!-- GOOGLE MAP -->
   <section class="map-section">
+
     <div class="map-heading">
       <span class="eyebrow">FIND US</span>
+
       <h2>Visit Our <span>Store.</span></h2>
-      <p>Come visit SS Traders Mattress in Aligarh.</p>
+
+      <p>
+        Come visit SS Traders Mattress in Aligarh.
+        We'd love to welcome you.
+      </p>
     </div>
 
     <iframe
@@ -140,6 +217,7 @@ import contactImg from "../../public/images/contact.webp";
       referrerpolicy="strict-origin-when-cross-origin"
       title="SS Traders Mattress Location"
     ></iframe>
+
   </section>
 
   <style>
@@ -151,6 +229,8 @@ import contactImg from "../../public/images/contact.webp";
       width: min(1200px, calc(100% - 48px));
       margin-inline: auto;
     }
+
+    /* CONTACT HERO */
 
     .contact-hero {
       background: #002556;
@@ -187,6 +267,8 @@ import contactImg from "../../public/images/contact.webp";
       font-size: 15px;
     }
 
+    /* CONTACT SECTION */
+
     .contact-section {
       padding: 100px 0;
       background: #F5F6F8;
@@ -215,6 +297,8 @@ import contactImg from "../../public/images/contact.webp";
       font-size: 14px;
     }
 
+    /* CONTACT ITEMS */
+
     .info-item {
       display: flex;
       align-items: flex-start;
@@ -235,6 +319,10 @@ import contactImg from "../../public/images/contact.webp";
       font-size: 20px;
     }
 
+    .info-item > div:last-child {
+      min-width: 0;
+    }
+
     .info-item span {
       display: block;
       color: #888;
@@ -250,6 +338,15 @@ import contactImg from "../../public/images/contact.webp";
       text-decoration: none;
       line-height: 1.7;
       margin: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .info-item a {
+      transition: color .3s ease;
+    }
+
+    .info-item a:hover {
+      color: #C6A15B;
     }
 
     .info-item .direction-link {
@@ -258,6 +355,12 @@ import contactImg from "../../public/images/contact.webp";
       font-size: 12px;
       margin-top: 8px;
     }
+
+    .store-address {
+      max-width: 430px;
+    }
+
+    /* ENQUIRY CARD */
 
     .enquiry-card {
       background: #fff;
@@ -334,7 +437,15 @@ import contactImg from "../../public/images/contact.webp";
       color: #002556;
     }
 
-    /* Full width photo */
+    .form-note {
+      color: #999;
+      font-size: 11px;
+      line-height: 1.6;
+      margin: 5px 0 0;
+    }
+
+    /* STORE PHOTO */
+
     .store-photo-section {
       width: 100%;
       height: clamp(280px, 48vw, 600px);
@@ -350,7 +461,8 @@ import contactImg from "../../public/images/contact.webp";
       object-position: center;
     }
 
-    /* Full width map */
+    /* GOOGLE MAP */
+
     .map-section {
       width: 100%;
       background: #fff;
@@ -376,6 +488,7 @@ import contactImg from "../../public/images/contact.webp";
       color: #888;
       font-size: 14px;
       margin: 0;
+      line-height: 1.8;
     }
 
     .map-section iframe {
@@ -383,6 +496,8 @@ import contactImg from "../../public/images/contact.webp";
       height: 450px;
       display: block;
     }
+
+    /* RESPONSIVE */
 
     @media (max-width: 768px) {
       .container {
@@ -410,6 +525,10 @@ import contactImg from "../../public/images/contact.webp";
         padding: 28px 22px;
       }
 
+      .enquiry-card h2 {
+        font-size: 26px;
+      }
+
       .store-photo-section {
         height: 320px;
       }
@@ -421,31 +540,68 @@ import contactImg from "../../public/images/contact.webp";
       .map-section iframe {
         height: 350px;
       }
+
+      .info-item {
+        gap: 14px;
+      }
+
+      .info-item a,
+      .info-item p {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .enquiry-card {
+        padding: 24px 17px;
+      }
+
+      .info-icon {
+        width: 40px;
+        height: 40px;
+      }
     }
   </style>
 
+  <!-- WHATSAPP FORM SCRIPT -->
   <script>
-    const form = document.querySelector("#contactForm");
+    const form = document.querySelector<HTMLFormElement>("#contactForm");
 
     form?.addEventListener("submit", (event) => {
       event.preventDefault();
 
-      const name = document.querySelector("#name")?.value.trim();
-      const phone = document.querySelector("#phone")?.value.trim();
-      const message = document.querySelector("#message")?.value.trim();
+      const name = (
+        document.querySelector<HTMLInputElement>("#name")?.value || ""
+      ).trim();
 
-      const number = String("YOUR_WHATSAPP_NUMBER").replace(/\D/g, "");
+      const phone = (
+        document.querySelector<HTMLInputElement>("#phone")?.value || ""
+      ).trim();
 
-      const text = `Hello SS Traders Mattress,
+      const message = (
+        document.querySelector<HTMLTextAreaElement>("#message")?.value || ""
+      ).trim();
+
+      if (!name || !phone || !message) {
+        return;
+      }
+
+      const number = form.dataset.whatsapp;
+
+      if (!number) {
+        return;
+      }
+
+      const whatsappMessage = `Hello SS Traders Mattress,
 
 Name: ${name}
 Phone: ${phone}
 Message: ${message}`;
 
-      window.open(
-        `https://wa.me/${number}?text=${encodeURIComponent(text)}`,
-        "_blank"
-      );
+      const whatsappUrl =
+        `https://wa.me/${number}?text=${encodeURIComponent(whatsappMessage)}`;
+
+      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
     });
   </script>
 </MainLayout>

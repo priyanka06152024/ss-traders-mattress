@@ -8,7 +8,7 @@ export const business = {
   alternateEmail: "sstradersmattressaligarh@gmail.com",
   website: "https://www.sstradersmattress.co.in",
   address: "Dhorra Quarsi Bypass Road, In Front of Saleem Wali Puliya, FN/2, Fatehnagar, Maheshpur Masjid, Abu Bakar Gali, Aligarh, Uttar Pradesh 202002, India",
-  shortAddress: "Dhorra Quarsi Bypass Road, Aligarh, Uttar Pradesh 202002",
+  
 };
 
 export const sizes = [
