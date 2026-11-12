@@ -1,6 +1,59 @@
 
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+
+import certificatePage1 from "../../public/images/certificatePage1.webp";
+import certificatePage2 from "../../public/images/certificatePage2.webp";
+import certificatePage3 from "../../public/images/certificatePage3.webp";
+
+
+const products = [
+  {
+    number: "01",
+    title: "Orthopedic Mattresses",
+    description: "Mattress options designed for people looking for supportive sleeping comfort."
+  },
+  {
+    number: "02",
+    title: "Foam Mattresses",
+    description: "Everyday foam mattress options available in different comfort preferences."
+  },
+  {
+    number: "03",
+    title: "Rebonded / Bonded Mattresses",
+    description: "Rebonded foam solutions for customers with different support requirements."
+  },
+  {
+    number: "04",
+    title: "Spring Mattresses",
+    description: "Spring-based mattress options for a different sleeping experience."
+  },
+  {
+    number: "05",
+    title: "Memory Foam Mattresses",
+    description: "Memory foam options designed to adapt to body contours and sleeping preferences."
+  },
+  {
+    number: "06",
+    title: "PU & HR Foam",
+    description: "Foam product solutions for a variety of comfort and usage requirements."
+  }
+];
+
+const reasons = [
+  ["01", "Product Variety", "Multiple mattress and foam categories in one place."],
+  ["02", "Customer Focus", "Understanding different comfort preferences and requirements."],
+  ["03", "Quality Focus", "Committed to offering products with attention to quality and durability."],
+  ["04", "Local Presence", "Convenient local contact and product enquiries in Aligarh."]
+];
+
+const udyamPages = ["/images/udyam-page-1.webp"];
+
+const certificatePages = [
+  certificatePage1.src,
+  certificatePage2.src,
+  certificatePage3.src
+];
 ---
 
 <MainLayout
@@ -93,38 +146,7 @@ import MainLayout from "../layouts/MainLayout.astro";
       </div>
 
       <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {[
-          {
-            number: "01",
-            title: "Orthopedic Mattresses",
-            description: "Mattress options designed for people looking for supportive sleeping comfort."
-          },
-          {
-            number: "02",
-            title: "Foam Mattresses",
-            description: "Everyday foam mattress options available in different comfort preferences."
-          },
-          {
-            number: "03",
-            title: "Rebonded / Bonded Mattresses",
-            description: "Rebonded foam solutions for customers with different support requirements."
-          },
-          {
-            number: "04",
-            title: "Spring Mattresses",
-            description: "Spring-based mattress options for a different sleeping experience."
-          },
-          {
-            number: "05",
-            title: "Memory Foam Mattresses",
-            description: "Memory foam options designed to adapt to body contours and sleeping preferences."
-          },
-          {
-            number: "06",
-            title: "PU & HR Foam",
-            description: "Foam product solutions for a variety of comfort and usage requirements."
-          }
-        ].map((product) => (
+        {products.map((product) => (
           <article class="product-box group">
             <div class="flex items-center justify-between">
               <span class="product-number">{product.number}</span>
@@ -165,12 +187,7 @@ import MainLayout from "../layouts/MainLayout.astro";
       </div>
 
       <div class="grid gap-4 sm:grid-cols-2">
-        {[
-          ["01", "Product Variety", "Multiple mattress and foam categories in one place."],
-          ["02", "Customer Focus", "Understanding different comfort preferences and requirements."],
-          ["03", "Quality Focus", "Committed to offering products with attention to quality and durability."],
-          ["04", "Local Presence", "Convenient local contact and product enquiries in Aligarh."]
-        ].map(([number, title, description]) => (
+        {reasons.map(([number, title, description]) => (
           <article class="why-card">
             <span>{number}</span>
             <h3>{title}</h3>
@@ -202,146 +219,301 @@ import MainLayout from "../layouts/MainLayout.astro";
     </div>
   </section>
 
-  <!-- UDYAM REGISTRATION -->
-  <section class="container-wide py-20 md:py-28">
-    <div class="udyam-card">
-      <div class="udyam-icon" aria-hidden="true">✓</div>
-
-      <div class="udyam-content">
+  <!-- UDYAM CERTIFICATE -->
+  <section class="udyam-certificate-section">
+    <div class="container-wide">
+      <div class="udyam-heading">
         <p class="eyebrow">BUSINESS REGISTRATION</p>
 
-        <h2>Udyam Registration</h2>
+        <h2 class="section-title">
+          Our business identity.
+          <span>Officially registered.</span>
+        </h2>
 
         <p>
-          SS Traders Mattress has provided the following Udyam
-          Registration Number as its business registration detail.
+          Explore the Udyam registration details of SS Traders Mattress.
+          Click the document to view it in full screen.
         </p>
-
-        <div class="udyam-number">
-          <span>UDYAM REGISTRATION NUMBER</span>
-          <strong>UDYAM-UP-02-0115192</strong>
-        </div>
-
-        <a
-          href="https://udyamregistration.gov.in/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="udyam-link"
-        >
-          Visit Official Udyam Portal <span>↗</span>
-        </a>
       </div>
 
-      
+      <div class="udyam-certificate-layout">
+        <div class="udyam-certificate-info">
+          <div class="udyam-mark">U</div>
+
+          <p class="udyam-small-label">GOVERNMENT OF INDIA</p>
+
+          <h3>Udyam Registration Certificate</h3>
+
+          <p class="udyam-text">
+            SS Traders Mattress has provided its Udyam registration
+            details as a business credential.
+          </p>
+
+          <div class="udyam-number-box">
+            <span>UDYAM REGISTRATION NUMBER</span>
+            <strong>UDYAM-UP-02-0115192</strong>
+          </div>
+
+          <div class="udyam-details">
+            <div>
+              <span>BUSINESS NAME</span>
+              <strong>SS Traders Mattress</strong>
+            </div>
+
+            <div>
+              <span>LOCATION</span>
+              <strong>Aligarh, Uttar Pradesh</strong>
+            </div>
+
+            <div>
+              <span>REGISTRATION TYPE</span>
+              <strong>MSME / Udyam</strong>
+            </div>
+          </div>
+
+          <a
+            href="https://udyamregistration.gov.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="udyam-portal-link"
+          >
+            Visit Official Udyam Portal <span>↗</span>
+          </a>
+        </div>
+
+        <button
+          type="button"
+          class="udyam-document-preview"
+          data-viewer-open="udyam"
+          aria-label="Open Udyam registration certificate"
+        >
+          <div class="document-top-label">
+            <span>REGISTRATION DOCUMENT</span>
+            <span>01 / 01</span>
+          </div>
+
+          <div class="udyam-document-image">
+            <img
+              src={certificatePage1.src}
+              alt="Udyam registration certificate"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="document-click-overlay">
+            <span class="document-zoom-icon">↗</span>
+            <span>CLICK TO VIEW DOCUMENT</span>
+          </div>
+
+          <div class="document-bottom-label">
+            <span>SS TRADERS MATTRESS</span>
+            <span>UDYAM CERTIFICATE</span>
+          </div>
+        </button>
+      </div>
     </div>
   </section>
 
+  <!-- GST / CERTIFICATE SECTION -->
+  <section class="gst-certificate-section">
+    <div class="container-wide">
+      <div class="gst-heading">
+        <div>
+          <p class="eyebrow">TAX REGISTRATION</p>
 
+          <h2 class="section-title">
+            GST registration.
+            <span>Documented transparency.</span>
+          </h2>
 
-<!-- BUSINESS CREDENTIALS -->
-<section class="credentials-section">
-  <div class="container-wide">
-
-    <div class="credentials-heading">
-      <p class="eyebrow">OUR BUSINESS CREDENTIALS</p>
-      <h2 class="section-title mt-4">
-        Registered with <span>transparency.</span>
-      </h2>
-      <p>
-        Explore the business registration details and documentation
-        of SS Traders Mattress.
-      </p>
-    </div>
-
-    <div class="credentials-grid">
-
-      <!-- UDYAM REGISTRATION -->
-      <div class="credential-info-card">
-        <div class="credential-icon">✓</div>
-
-        <p class="eyebrow">MSME REGISTRATION</p>
-
-        <h3>Udyam Registration</h3>
-
-        <p class="credential-description">
-          Udyam registration details provided by SS Traders Mattress
-          for business reference.
-        </p>
-
-        <div class="credential-number">
-          <span>REGISTRATION NUMBER</span>
-          <strong>UDYAM-UP-02-0115192</strong>
+          <p>
+            View the registration document provided by SS Traders
+            Mattress. All three pages are available in the document viewer.
+          </p>
         </div>
 
-        <a
-          href="https://udyamregistration.gov.in/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="credential-link"
-        >
-          Official Udyam Portal <span>↗</span>
-        </a>
-
-        <div class="credential-bottom">
-          <span>SS TRADERS MATTRESS</span>
-          <span>ALIGARH, UP</span>
+        <div class="gst-heading-mark">
+          <span>GST</span>
+          <small>REGISTRATION</small>
         </div>
       </div>
 
-      <!-- GST CERTIFICATE -->
-      <div class="gst-card">
+      <div class="gst-document-layout">
+        <button
+          type="button"
+          class="gst-document-preview"
+          data-viewer-open="certificate"
+          aria-label="Open registration certificate"
+        >
+          <img
+            src={certificatePage1.src}
+            alt="First page of registration certificate"
+            loading="lazy"
+          />
 
-        <div class="gst-card-heading">
-          <div>
-            <p class="eyebrow">TAX REGISTRATION</p>
-            <h3>GST Certificate</h3>
+          <span class="gst-preview-shade">
+            <span class="gst-zoom-icon">↗</span>
+            <strong>VIEW FULL CERTIFICATE</strong>
+            <small>3 DOCUMENT PAGES</small>
+          </span>
+
+          <span class="gst-page-number">PAGE 01 / 03</span>
+        </button>
+
+        <div class="gst-document-details">
+          <span class="gst-document-kicker">OFFICIAL REGISTRATION DOCUMENT</span>
+
+          <h3>Registration Certificate</h3>
+
+          <p>
+            This document contains the registration information
+            provided by SS Traders Mattress. Open the preview to navigate
+            through the complete document.
+          </p>
+
+          <div class="gst-detail-row">
+            <span class="gst-detail-icon">DOC</span>
+
+            <div>
+              <strong>Registration Certificate</strong>
+              <small>Image document · 3 pages</small>
+            </div>
           </div>
 
-          <span class="gst-badge">PDF · 3 PAGES</span>
+          <div class="gst-detail-actions">
+            <button
+              type="button"
+              data-viewer-open="certificate"
+              class="gst-view-btn"
+            >
+              View Certificate <span>↗</span>
+            </button>
+
+            <a
+              href={certificatePage1.src}
+              download="SS-Traders-Certificate-Page-1.webp"
+              class="gst-download-btn"
+              aria-label="Download certificate page"
+            >
+              ↓
+            </a>
+          </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <p class="gst-description">
-          View the GST registration document of SS Traders Mattress.
-        </p>
-
-        <div class="gst-pdf-preview">
-          <iframe
-            src="/documents/gst-certificate.pdf#toolbar=0&navpanes=0"
-            title="SS Traders Mattress GST Certificate"
-            loading="lazy"
-          ></iframe>
-        </div>
-
-        <div class="gst-actions">
-          <a
-            href="/documents/gst-certificate.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="gst-open-button"
-          >
-            Open Full Certificate <span>↗</span>
-          </a>
-
-          <a
-            href="/documents/gst-certificate.pdf"
-            download="SS-Traders-GST-Certificate.pdf"
-            class="gst-download-button"
-            aria-label="Download GST Certificate"
-          >
-            ↓
-          </a>
-        </div>
-
-        <p class="gst-note">
-          Official document provided by SS Traders Mattress.
-        </p>
-
+  <!-- UDYAM DOCUMENT VIEWER -->
+  <div
+    class="document-lightbox"
+    data-document-viewer="udyam"
+    data-pages={JSON.stringify(udyamPages)}
+    aria-hidden="true"
+  >
+    <div class="lightbox-header">
+      <div>
+        <span>SS TRADERS MATTRESS · BUSINESS REGISTRATION</span>
+        <h3>Udyam Registration Certificate</h3>
       </div>
 
+      <button type="button" data-viewer-close aria-label="Close viewer">
+        ×
+      </button>
+    </div>
+
+    <div class="lightbox-body">
+      <button type="button" data-viewer-prev aria-label="Previous page">
+        ←
+      </button>
+
+      <div class="lightbox-image-wrap">
+        <img
+          src={certificatePage1.src}
+          alt="Udyam certificate page 1"
+          data-viewer-image
+        />
+      </div>
+
+      <button type="button" data-viewer-next aria-label="Next page">
+        →
+      </button>
+    </div>
+
+    <div class="lightbox-footer">
+      <span>
+        <b data-viewer-current>01</b> /
+        <span data-viewer-total>01</span>
+      </span>
+
+      <div class="lightbox-progress">
+        <span data-viewer-progress></span>
+      </div>
+
+      <a
+        href="https://udyamregistration.gov.in/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Official Portal ↗
+      </a>
     </div>
   </div>
-</section>
 
+  <!-- CERTIFICATE DOCUMENT VIEWER -->
+ <!-- CERTIFICATE DOCUMENT VIEWER -->
+<div
+  class="document-lightbox"
+  data-document-viewer="certificate"
+  data-pages={JSON.stringify(certificatePages)}
+  aria-hidden="true"
+>
+    <div class="lightbox-header">
+      <div>
+        <span>SS TRADERS MATTRESS · REGISTRATION</span>
+        <h3>Registration Certificate</h3>
+      </div>
+
+      <button type="button" data-viewer-close aria-label="Close viewer">
+        ×
+      </button>
+    </div>
+
+    <div class="lightbox-body">
+      <button type="button" data-viewer-prev aria-label="Previous page">
+        ←
+      </button>
+
+      <div class="lightbox-image-wrap">
+        <img
+          src={certificatePage1.src}
+          alt="Registration certificate page 1"
+          data-viewer-image
+        />
+      </div>
+
+      <button type="button" data-viewer-next aria-label="Next page">
+        →
+      </button>
+    </div>
+
+    <div class="lightbox-footer">
+      <span>
+        <b data-viewer-current>01</b> /
+        <span data-viewer-total>03</span>
+      </span>
+
+      <div class="lightbox-progress">
+        <span data-viewer-progress></span>
+      </div>
+
+      <a
+        href={certificatePage1.src}
+        download="SS-Traders-Certificate-Page-1.webp"
+      >
+        Download Page ↓
+      </a>
+    </div>
+  </div>
 
   <!-- FINAL CTA -->
   <section class="bg-[var(--paper)] py-20 md:py-24">
@@ -393,9 +565,7 @@ import MainLayout from "../layouts/MainLayout.astro";
       transform: translateY(-3px);
     }
 
-    .about-btn span {
-      font-size: 17px;
-    }
+    .about-btn span { font-size: 17px; }
 
     .about-content p {
       font-size: 14px;
@@ -424,10 +594,7 @@ import MainLayout from "../layouts/MainLayout.astro";
       letter-spacing: 2px;
     }
 
-    .product-star {
-      color: var(--gold);
-      font-size: 21px;
-    }
+    .product-star { color: var(--gold); font-size: 21px; }
 
     .product-box h3 {
       margin-top: 35px;
@@ -454,10 +621,7 @@ import MainLayout from "../layouts/MainLayout.astro";
       transition: .3s ease;
     }
 
-    .product-box a:hover {
-      color: var(--gold);
-      gap: 16px;
-    }
+    .product-box a:hover { color: var(--gold); gap: 16px; }
 
     .why-card {
       padding: 25px;
@@ -492,380 +656,881 @@ import MainLayout from "../layouts/MainLayout.astro";
       line-height: 1.9;
     }
 
-    .udyam-card {
-      position: relative;
-      display: flex;
-      gap: 30px;
-      align-items: flex-start;
-      overflow: hidden;
-      padding: 45px;
-      border: 1px solid #e5e7eb;
-      border-radius: 16px;
-      background: white;
-      box-shadow: 0 15px 50px rgba(0,37,86,.05);
+    /* UDYAM SECTION */
+
+    .udyam-certificate-section {
+      padding: 110px 0;
+      background: #fff;
     }
 
-    .udyam-icon {
-      display: grid;
-      width: 55px;
-      height: 55px;
-      flex-shrink: 0;
-      place-items: center;
-      border-radius: 50%;
-      background: var(--paper);
+    .udyam-heading {
+      max-width: 650px;
+      margin-bottom: 45px;
+    }
+
+    .udyam-heading .section-title span,
+    .gst-heading .section-title span {
       color: var(--gold);
-      font-size: 25px;
-      font-weight: 700;
     }
 
-    .udyam-content {
-      position: relative;
-      z-index: 1;
-    }
-
-    .udyam-content h2 {
-      color: var(--navy);
-      font-size: 30px;
-      font-weight: 700;
-    }
-
-    .udyam-content > p:not(.eyebrow) {
-      max-width: 600px;
-      margin-top: 12px;
+    .udyam-heading > p:last-child,
+    .gst-heading > div:first-child > p:last-child {
+      margin-top: 18px;
       color: var(--muted);
       font-size: 14px;
       line-height: 1.9;
     }
 
-    .udyam-number {
-      display: flex;
-      flex-direction: column;
-      gap: 9px;
-      width: fit-content;
-      margin-top: 25px;
-      padding: 18px 22px;
-      border-left: 3px solid var(--gold);
-      background: var(--paper);
+    .udyam-certificate-layout {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 35px;
+      align-items: stretch;
     }
 
-    .udyam-number span {
-      color: var(--muted);
+    .udyam-certificate-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 42px;
+      background: var(--navy);
+      color: white;
+    }
+
+    .udyam-mark {
+      display: grid;
+      width: 55px;
+      height: 55px;
+      place-items: center;
+      border: 1px solid rgba(254,199,58,.6);
+      color: var(--gold-light);
+      font-size: 26px;
+      font-weight: 800;
+    }
+
+    .udyam-small-label {
+      margin-top: 35px;
+      color: var(--gold-light);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .udyam-certificate-info h3 {
+      margin-top: 12px;
+      font-size: 29px;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .udyam-text {
+      margin-top: 15px;
+      color: rgba(255,255,255,.65);
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .udyam-number-box {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+      margin-top: 28px;
+      padding: 19px;
+      border-left: 3px solid var(--gold);
+      background: rgba(255,255,255,.08);
+    }
+
+    .udyam-number-box span,
+    .udyam-details span {
+      color: rgba(255,255,255,.5);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+    }
+
+    .udyam-number-box strong {
+      color: var(--gold-light);
+      font-size: 16px;
+      overflow-wrap: anywhere;
+    }
+
+    .udyam-details {
+      display: grid;
+      gap: 17px;
+      width: 100%;
+      margin-top: 28px;
+    }
+
+    .udyam-details div {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .udyam-details strong {
+      color: white;
+      font-size: 13px;
+    }
+
+    .udyam-portal-link {
+      display: inline-flex;
+      gap: 12px;
+      margin-top: 28px;
+      color: var(--gold-light);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .udyam-document-preview {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      padding: 24px;
+      border: 1px solid #e8e4da;
+      background: #f5f3ee;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .document-top-label,
+    .document-bottom-label {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: #8b867d;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .udyam-document-image {
+      display: grid;
+      flex: 1;
+      min-height: 370px;
+      margin: 18px 0;
+      place-items: center;
+      overflow: hidden;
+      background: white;
+    }
+
+    .udyam-document-image img {
+      width: 100%;
+      height: 100%;
+      max-height: 490px;
+      object-fit: contain;
+      transition: transform .5s ease;
+    }
+
+    .udyam-document-preview:hover img { transform: scale(1.025); }
+
+    .document-click-overlay {
+      position: absolute;
+      inset: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: rgba(0,25,55,.72);
+      color: white;
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 1.5px;
+      opacity: 0;
+      transition: opacity .3s ease;
     }
 
-    .udyam-number strong {
-      color: var(--navy);
-      font-size: 17px;
-      letter-spacing: .5px;
+    .udyam-document-preview:hover .document-click-overlay,
+    .udyam-document-preview:focus-visible .document-click-overlay {
+      opacity: 1;
     }
 
-    .udyam-link {
-      display: inline-flex;
-      gap: 10px;
-      margin-top: 22px;
+    .document-zoom-icon,
+    .gst-zoom-icon {
+      display: grid;
+      width: 50px;
+      height: 50px;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.7);
+      border-radius: 50%;
+      font-size: 22px;
+    }
+
+    /* GST / CERTIFICATE SECTION */
+
+    .gst-certificate-section {
+      padding: 110px 0;
+      background: #f3f5f8;
+    }
+
+    .gst-heading {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 45px;
+    }
+
+    .gst-heading > div:first-child { max-width: 650px; }
+
+    .gst-heading-mark {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 115px;
+      height: 100px;
+      flex-shrink: 0;
+      background: var(--navy);
+      color: var(--gold-light);
+    }
+
+    .gst-heading-mark span {
+      font-size: 30px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .gst-heading-mark small {
+      font-size: 8px;
+      letter-spacing: 2px;
+    }
+
+    .gst-document-layout {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 45px;
+      align-items: center;
+      padding: 35px;
+      background: white;
+      border: 1px solid #e3e7ec;
+      box-shadow: 0 20px 55px rgba(0,37,86,.05);
+    }
+
+    .gst-document-preview {
+      position: relative;
+      display: grid;
+      width: 100%;
+      height: 470px;
+      overflow: hidden;
+      place-items: center;
+      background: #edf0f3;
+      cursor: pointer;
+    }
+
+    .gst-document-preview > img {
+      width: 100%;
+      height: 100%;
+      padding: 15px;
+      object-fit: contain;
+      transition: transform .5s ease;
+    }
+
+    .gst-document-preview:hover > img { transform: scale(1.025); }
+
+    .gst-preview-shade {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: rgba(0,25,55,.76);
+      color: white;
+      opacity: 0;
+      transition: opacity .3s ease;
+    }
+
+    .gst-document-preview:hover .gst-preview-shade,
+    .gst-document-preview:focus-visible .gst-preview-shade {
+      opacity: 1;
+    }
+
+    .gst-preview-shade strong {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+    }
+
+    .gst-preview-shade small {
+      color: var(--gold-light);
+      font-size: 9px;
+      letter-spacing: 1.5px;
+    }
+
+    .gst-page-number {
+      position: absolute;
+      right: 15px;
+      bottom: 15px;
+      padding: 10px 13px;
+      background: var(--navy);
+      color: white;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .gst-document-details {
+      padding: 15px 10px;
+    }
+
+    .gst-document-kicker {
+      color: #a58243;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .gst-document-details h3 {
+      margin-top: 16px;
       color: var(--navy);
+      font-size: clamp(27px, 3vw, 38px);
+      font-weight: 750;
+      line-height: 1.2;
+      letter-spacing: -1px;
+    }
+
+    .gst-document-details > p {
+      margin-top: 17px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 2;
+    }
+
+    .gst-detail-row {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-top: 32px;
+      padding: 20px 0;
+      border-top: 1px solid #e9e9e9;
+      border-bottom: 1px solid #e9e9e9;
+    }
+
+    .gst-detail-icon {
+      display: grid;
+      width: 48px;
+      height: 48px;
+      place-items: center;
+      background: #f5f1e7;
+      color: #a58243;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .gst-detail-row div {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .gst-detail-row strong {
+      color: var(--navy);
+      font-size: 13px;
+    }
+
+    .gst-detail-row small {
+      color: #999;
+      font-size: 10px;
+    }
+
+    .gst-detail-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .gst-view-btn {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      background: var(--navy);
+      color: white;
       font-size: 12px;
       font-weight: 700;
+      cursor: pointer;
       transition: .3s ease;
     }
 
-    .udyam-link:hover {
-      color: var(--gold);
+    .gst-view-btn:hover {
+      background: var(--gold);
+      color: var(--navy);
     }
 
-    .udyam-watermark {
-      position: absolute;
-      right: -15px;
-      bottom: -45px;
-      color: rgba(0,37,86,.035);
-      font-size: 100px;
-      font-weight: 900;
+    .gst-download-btn {
+      display: grid;
+      width: 50px;
+      flex-shrink: 0;
+      place-items: center;
+      border: 1px solid #e2e2e2;
+      color: var(--navy);
+      font-size: 22px;
+      transition: .3s ease;
+    }
+
+    .gst-download-btn:hover {
+      border-color: var(--gold);
+      color: #a58243;
+    }
+
+    /* DOCUMENT VIEWERS */
+
+    .document-lightbox {
+      position: fixed;
+      z-index: 99999;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      width: 100%;
+      height: 100vh;
+      height: 100dvh;
+      padding: 24px 5%;
+      overflow: hidden;
+      background: rgba(5,12,22,.97);
+      opacity: 0;
+      visibility: hidden;
       pointer-events: none;
+      transition: opacity .3s ease, visibility .3s ease;
     }
 
-    @media (max-width: 640px) {
-      .udyam-card {
+    .document-lightbox.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    body.document-viewer-open {
+      overflow: hidden;
+    }
+
+    .lightbox-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      flex-shrink: 0;
+    }
+
+    .lightbox-header > div > span {
+      color: var(--gold-light);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+    }
+
+    .lightbox-header h3 {
+      margin-top: 7px;
+      color: white;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .lightbox-header button {
+      display: grid;
+      width: 45px;
+      height: 45px;
+      flex-shrink: 0;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: 50%;
+      color: white;
+      font-size: 30px;
+      cursor: pointer;
+      transition: .3s ease;
+    }
+
+    .lightbox-header button:hover {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    .lightbox-body {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      width: 100%;
+      min-height: 0;
+      padding: 15px 0;
+      overflow: hidden;
+    }
+
+    .lightbox-image-wrap {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      min-width: 0;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    /* IMPORTANT: FIT COMPLETE IMAGE INSIDE SCREEN */
+
+    .lightbox-image-wrap img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      object-position: center;
+      background: white;
+    }
+
+    .lightbox-body > button {
+      display: grid;
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: 50%;
+      color: white;
+      font-size: 22px;
+      cursor: pointer;
+      transition: .3s ease;
+    }
+
+    .lightbox-body > button:hover:not(:disabled) {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--navy);
+    }
+
+    .lightbox-body > button:disabled {
+      opacity: .25;
+      cursor: not-allowed;
+    }
+
+    .lightbox-footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 25px;
+      width: 100%;
+      max-width: 650px;
+      margin: 0 auto;
+      flex-shrink: 0;
+    }
+
+    .lightbox-footer > span {
+      color: white;
+      font-size: 13px;
+    }
+
+    .lightbox-footer a {
+      color: var(--gold-light);
+      font-size: 11px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .lightbox-progress {
+      width: 110px;
+      height: 2px;
+      overflow: hidden;
+      background: rgba(255,255,255,.2);
+    }
+
+    .lightbox-progress span {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: var(--gold);
+      transition: width .3s ease;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 850px) {
+      .udyam-certificate-layout,
+      .gst-document-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .gst-document-preview { height: 430px; }
+    }
+
+    @media (max-width: 550px) {
+      .udyam-certificate-section,
+      .gst-certificate-section {
+        padding: 70px 0;
+      }
+
+      .udyam-certificate-info { padding: 28px 23px; }
+      .udyam-certificate-info h3 { font-size: 25px; }
+      .udyam-document-preview { padding: 15px; }
+      .udyam-document-image { min-height: 260px; }
+      .document-click-overlay { inset: 15px; }
+
+      .gst-heading {
+        align-items: flex-start;
         flex-direction: column;
-        gap: 22px;
-        padding: 28px 22px;
       }
 
-      .udyam-content h2 {
-        font-size: 25px;
+      .gst-heading-mark {
+        width: 85px;
+        height: 75px;
       }
 
-      .udyam-number {
+      .gst-heading-mark span { font-size: 24px; }
+
+      .gst-document-layout {
+        gap: 20px;
+        padding: 16px;
+      }
+
+      .gst-document-preview { height: 330px; }
+      .gst-document-details { padding: 12px 3px; }
+
+      .document-lightbox {
+        padding: 12px 8px;
+      }
+
+      .lightbox-header h3 { font-size: 14px; }
+
+      .lightbox-body {
+        gap: 6px;
+        padding: 10px 0;
+      }
+
+      .lightbox-image-wrap {
+        flex: 1;
+        min-width: 0;
+        min-height: 0;
+      }
+
+      .lightbox-image-wrap img {
         width: 100%;
-        padding: 15px;
+        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
       }
 
-      .udyam-number strong {
-        font-size: 14px;
-        overflow-wrap: anywhere;
+      .lightbox-body > button {
+        width: 34px;
+        height: 34px;
+        font-size: 17px;
       }
 
-      .udyam-watermark {
-        font-size: 65px;
-      }
+      .lightbox-footer { gap: 12px; }
+      .lightbox-progress { width: 55px; }
+      .lightbox-footer a { font-size: 9px; }
     }
 
-
-
-
-/* BUSINESS CREDENTIALS */
-
-.credentials-section {
-  padding: 110px 0;
-  background: #F5F3EE;
-}
-
-.credentials-heading {
-  max-width: 650px;
-  margin-bottom: 55px;
-}
-
-.credentials-heading .section-title span {
-  color: var(--gold);
-}
-
-.credentials-heading > p:last-child {
-  max-width: 530px;
-  margin-top: 18px;
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.9;
-}
-
-.credentials-grid {
-  display: grid;
-  grid-template-columns: .85fr 1.15fr;
-  gap: 25px;
-  align-items: stretch;
-}
-
-/* UDYAM CARD */
-
-.credential-info-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 42px 35px 30px;
-  overflow: hidden;
-  background: #fff;
-  border: 1px solid #E9E5DC;
-  box-shadow: 0 15px 40px rgba(40,35,25,.04);
-}
-
-.credential-icon {
-  display: grid;
-  place-items: center;
-  width: 48px;
-  height: 48px;
-  margin-bottom: 35px;
-  border: 1px solid var(--gold);
-  border-radius: 50%;
-  color: #A58243;
-  font-size: 21px;
-}
-
-.credential-info-card h3,
-.gst-card-heading h3 {
-  margin-top: 12px;
-  color: var(--navy);
-  font-size: 27px;
-  font-weight: 700;
-  letter-spacing: -.8px;
-}
-
-.credential-description,
-.gst-description {
-  margin-top: 15px;
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.9;
-}
-
-.credential-number {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 100%;
-  margin-top: 35px;
-  padding: 20px;
-  border-left: 3px solid var(--gold);
-  background: #F8F7F3;
-}
-
-.credential-number span {
-  color: #99938A;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 1.3px;
-}
-
-.credential-number strong {
-  color: var(--navy);
-  font-size: 16px;
-  overflow-wrap: anywhere;
-}
-
-.credential-link {
-  display: inline-flex;
-  gap: 12px;
-  margin-top: 25px;
-  color: var(--navy);
-  font-size: 12px;
-  font-weight: 700;
-  transition: .3s ease;
-}
-
-.credential-link:hover {
-  color: var(--gold);
-  gap: 17px;
-}
-
-.credential-bottom {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  width: 100%;
-  margin-top: auto;
-  padding-top: 30px;
-  color: #99938A;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-
-/* GST CARD */
-
-.gst-card {
-  padding: 35px;
-  background: #fff;
-  border: 1px solid #E9E5DC;
-  box-shadow: 0 15px 40px rgba(40,35,25,.04);
-}
-
-.gst-card-heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-}
-
-.gst-badge {
-  padding: 9px 12px;
-  background: #F8F5EC;
-  color: #A58243;
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 1px;
-  white-space: nowrap;
-}
-
-.gst-pdf-preview {
-  height: 420px;
-  margin-top: 25px;
-  overflow: hidden;
-  border: 1px solid #E5E2DC;
-  background: #F4F3F0;
-}
-
-.gst-pdf-preview iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-.gst-actions {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 20px;
-}
-
-.gst-open-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 25px;
-  padding: 14px 19px;
-  background: var(--gold);
-  color: #fff;
-  font-size: 12px;
-  font-weight: 700;
-  transition: .3s ease;
-}
-
-.gst-open-button:hover {
-  background: var(--navy);
-  transform: translateY(-2px);
-}
-
-.gst-download-button {
-  display: grid;
-  place-items: center;
-  width: 45px;
-  height: 45px;
-  border: 1px solid #E5E2DC;
-  color: var(--navy);
-  font-size: 20px;
-  transition: .3s ease;
-}
-
-.gst-download-button:hover {
-  border-color: var(--gold);
-  color: #A58243;
-}
-
-.gst-note {
-  margin-top: 18px;
-  color: #99938A;
-  font-size: 11px;
-}
-
-/* RESPONSIVE */
-
-@media (max-width: 850px) {
-  .credentials-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .credential-info-card {
-    min-height: 440px;
-  }
-
-  .gst-pdf-preview {
-    height: 500px;
-  }
-}
-
-@media (max-width: 550px) {
-  .credentials-section {
-    padding: 70px 0;
-  }
-
-  .credential-info-card,
-  .gst-card {
-    padding: 27px 22px;
-  }
-
-  .gst-card-heading {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .gst-pdf-preview {
-    height: 430px;
-  }
-
-  .credential-bottom {
-    flex-direction: column;
-  }
-}
-
+    @media (prefers-reduced-motion: reduce) {
+      .document-lightbox,
+      .document-lightbox *,
+      .udyam-document-preview *,
+      .gst-document-preview * {
+        transition-duration: .01ms !important;
+      }
+    }
   </style>
+
+  <!-- DOCUMENT VIEWER JAVASCRIPT -->
+  <script>
+    const viewers = document.querySelectorAll(
+      "[data-document-viewer]"
+    );
+
+    let activeViewer = null;
+    let activePage = 0;
+    let lastFocusedElement = null;
+
+   function getPages(viewer) {
+  try {
+    return JSON.parse(viewer.dataset.pages || "[]");
+  } catch (error) {
+    console.error("Certificate pages could not be loaded:", error);
+    return [];
+  }
+}
+
+    function updateViewer() {
+      if (!activeViewer) return;
+
+      const pages = getPages(activeViewer);
+
+      if (!pages.length) return;
+
+      const image = activeViewer.querySelector(
+        "[data-viewer-image]"
+      );
+
+      const current = activeViewer.querySelector(
+        "[data-viewer-current]"
+      );
+
+      const total = activeViewer.querySelector(
+        "[data-viewer-total]"
+      );
+
+      const progress = activeViewer.querySelector(
+        "[data-viewer-progress]"
+      );
+
+      const previous = activeViewer.querySelector(
+        "[data-viewer-prev]"
+      );
+
+      const next = activeViewer.querySelector(
+        "[data-viewer-next]"
+      );
+
+      image.src = pages[activePage];
+
+      image.alt = `${
+        activeViewer.dataset.documentViewer.toUpperCase()
+      } certificate page ${activePage + 1}`;
+
+      current.textContent = String(activePage + 1).padStart(2, "0");
+
+      total.textContent = String(pages.length).padStart(2, "0");
+
+      progress.style.width =
+        `${((activePage + 1) / pages.length) * 100}%`;
+
+      previous.disabled = activePage === 0;
+
+      next.disabled = activePage === pages.length - 1;
+    }
+
+    function openViewer(type) {
+      const viewer = document.querySelector(
+        `[data-document-viewer="${type}"]`
+      );
+
+      if (!viewer) return;
+
+      const pages = getPages(viewer);
+
+      if (!pages.length) {
+        console.error("Certificate pages not found:", type);
+        return;
+      }
+
+      lastFocusedElement = document.activeElement;
+
+      if (activeViewer) {
+        activeViewer.classList.remove("is-open");
+        activeViewer.setAttribute("aria-hidden", "true");
+      }
+
+      activeViewer = viewer;
+      activePage = 0;
+
+      updateViewer();
+
+      viewer.classList.add("is-open");
+      viewer.setAttribute("aria-hidden", "false");
+
+      document.body.classList.add("document-viewer-open");
+
+      viewer.querySelector("[data-viewer-close]")?.focus();
+    }
+
+    function closeViewer() {
+      if (!activeViewer) return;
+
+      const viewerToClose = activeViewer;
+
+      viewerToClose.classList.remove("is-open");
+
+      viewerToClose.setAttribute("aria-hidden", "true");
+
+      document.body.classList.remove("document-viewer-open");
+
+      activeViewer = null;
+      activePage = 0;
+
+      if (lastFocusedElement?.isConnected) {
+        lastFocusedElement.focus();
+      }
+
+      lastFocusedElement = null;
+    }
+
+    function changePage(direction) {
+      if (!activeViewer) return;
+
+      const pages = getPages(activeViewer);
+
+      const newPage = activePage + direction;
+
+      if (newPage < 0 || newPage >= pages.length) return;
+
+      activePage = newPage;
+
+      updateViewer();
+    }
+
+    // OPEN VIEWER
+
+    document.querySelectorAll("[data-viewer-open]").forEach(
+      (button) => {
+        button.addEventListener("click", () => {
+          openViewer(button.dataset.viewerOpen);
+        });
+      }
+    );
+
+    // CLOSE AND PAGE NAVIGATION
+
+    viewers.forEach((viewer) => {
+      viewer.querySelector("[data-viewer-close]")?.addEventListener(
+        "click",
+        closeViewer
+      );
+
+      viewer.querySelector("[data-viewer-prev]")?.addEventListener(
+        "click",
+        () => changePage(-1)
+      );
+
+      viewer.querySelector("[data-viewer-next]")?.addEventListener(
+        "click",
+        () => changePage(1)
+      );
+
+      viewer.addEventListener("click", (event) => {
+        if (event.target === viewer) {
+          closeViewer();
+        }
+      });
+    });
+
+    // KEYBOARD CONTROLS
+
+    document.addEventListener("keydown", (event) => {
+      if (!activeViewer) return;
+
+      if (event.key === "Escape") {
+        closeViewer();
+      }
+
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        changePage(1);
+      }
+
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        changePage(-1);
+      }
+    });
+  </script>
 </MainLayout>
